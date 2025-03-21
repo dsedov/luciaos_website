@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="https://app.kinogaki.com">App</a>
+            <a href="/docs/getting-started">Docs</a>
+            <a href="https://youtube.com/@kino-gaki" target="_blank">Youtube</a>
+            <a href="https://x.com/kino_gaki" target="_blank">X</a>
+            <a href="https://bsky.app/profile/kinogaki.bsky.social" target="_blank">Bluesky</a>
+        </div>
+    </nav>
+
+    <main{% if page.url == "/" %} class="narrow-content"{% endif %}>
+        {{ content | safe }}
+    </main>
+
+    <div class="footer">
+        © 2025 Kinogaki. Made with ♥︎ for the plotting community.
+    </div>
+</body>
+</html>

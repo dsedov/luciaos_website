@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="/" class="nav-brand">LUCIA OS</a>
+            </div>
+            <nav class="sidebar-nav">
+                <ul class="nav-links">
+                    {%- for entry in collections.all | sortByOrder -%}
+                        {%- if entry.data.eleventyNavigation.parent == undefined -%}
+                            <li>
+                                <a href="{{ entry.url }}" {% if entry.url == page.url %}aria-current="page"{% endif %}>
+                                    {{ entry.data.eleventyNavigation.key }}
+                                </a>
+                                {%- if entry.data.eleventyNavigation.key == "Components" -%}
+                                    <ul class="sub-nav">
+                                        {%- for component in collections.components -%}
+                                            {%- if component.data.eleventyNavigation.parent == "Components" -%}
+                                                <li>
+                                                    <a href="{{ component.url }}" {% if component.url == page.url %}aria-current="page"{% endif %}>
+                                                        {{ component.data.eleventyNavigation.key }}
+                                                    </a>
+                                                </li>
+                                            {%- endif -%}
+                                        {%- endfor -%}
+                                    </ul>
+                                {%- endif -%}
+                            </li>
+                        {%- endif -%}
+                    {%- endfor -%}
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            {{ content | safe }}
+        </main>
+    </div>
+    <footer>
+        <p>&copy; {{ page.date.getFullYear() }} LUCIA OS. All rights reserved.</p>
+    </footer>
+</body>
+</html> 

@@ -1,0 +1,34 @@
+const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+
+module.exports = function(eleventyConfig) {
+    // Add the navigation plugin
+    eleventyConfig.addPlugin(eleventyNavigationPlugin);
+
+    // Copy the `css` directory to the output
+    eleventyConfig.addPassthroughCopy("css");
+    eleventyConfig.addPassthroughCopy("img");
+    eleventyConfig.addPassthroughCopy("CNAME");
+
+    // Create collections for different types of content
+    eleventyConfig.addCollection("docs", function(collectionApi) {
+        return collectionApi.getFilteredByGlob("docs/**/*.md");
+    });
+
+    eleventyConfig.addCollection("components", function(collectionApi) {
+        return collectionApi.getFilteredByGlob("components/**/*.{md,njk}");
+    });
+
+    // Add a filter for sorting navigation items
+    eleventyConfig.addFilter("sortByOrder", function(values) {
+        return values.sort((a, b) => a.data.eleventyNavigation.order - b.data.eleventyNavigation.order);
+    });
+
+    return {
+        dir: {
+            input: ".",
+            output: "_site",
+            includes: "_includes",
+            layouts: "_layouts"
+        }
+    };
+};

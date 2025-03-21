@@ -1,0 +1,5 @@
+{% set navPages = collections.all | eleventyNavigation %}
+
+<nav>
+  {{ collections.all | eleventyNavigation | eleventyNavigationToHtml | safe }}
+</nav>

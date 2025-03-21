@@ -1,0 +1,18 @@
+---
+layout: layouts/base.njk
+---
+<div class="docs-container">
+    <nav class="docs-nav">
+        {%- set navPages = collections.all | eleventyNavigation -%}
+        {{ collections.all | eleventyNavigation | eleventyNavigationToHtml({
+            listClass: "nav-list",
+            listItemClass: "nav-item",
+            activeListItemClass: "nav-item-active",
+            activeKey: eleventyNavigation.key
+        }) | safe }}
+    </nav>
+    
+    <main class="docs-content">
+        {{ content | safe }}
+    </main>
+</div>
