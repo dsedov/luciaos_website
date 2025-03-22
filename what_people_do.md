@@ -2,7 +2,7 @@
 layout: base.njk
 title: What do people do?
 eleventyNavigation:
-  key: What do People do?
+  key: What do people do?
   order: 2
 ---
 
