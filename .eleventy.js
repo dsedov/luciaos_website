@@ -1,8 +1,17 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const markdownIt = require("markdown-it");
 
 module.exports = function(eleventyConfig) {
     // Add the navigation plugin
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
+
+    // Configure markdown-it
+    const md = new markdownIt({
+        html: true,
+        breaks: true,
+        linkify: true
+    });
+    eleventyConfig.setLibrary("md", md);
 
     // Copy the `css` directory to the output
     eleventyConfig.addPassthroughCopy("css");
