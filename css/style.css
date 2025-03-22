@@ -467,8 +467,9 @@ pre code {
 .mobile-menu-toggle {
     display: none;
     position: absolute;
-    top: 1rem;
+    top: 50%;
     right: 1rem;
+    transform: translateY(-50%);
     z-index: 1000;
     background: none;
     border: none;
@@ -481,7 +482,7 @@ pre code {
     width: 24px;
     height: 2px;
     background-color: var(--sidebar-text-color);
-    margin: 5px 0;
+    margin: 4px 0;
     transition: all 0.3s ease;
 }
 
@@ -492,7 +493,7 @@ pre code {
     top: 0;
     left: 0;
     right: 0;
-    height: 4rem;
+    height: 3.5rem;
     background-color: var(--secondary-color);
     z-index: 1000;
     padding: 0 1rem;
@@ -501,7 +502,7 @@ pre code {
 }
 
 .mobile-header .nav-brand {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     margin: 0;
     color: var(--sidebar-text-color);
 }
@@ -518,6 +519,9 @@ pre code {
 
     .mobile-menu-toggle {
         display: block;
+        position: relative;
+        top: 0;
+        transform: none;
     }
 
     .mobile-menu-toggle.active .hamburger:nth-child(1) {
@@ -536,8 +540,8 @@ pre code {
         transform: translateX(-100%);
         transition: transform 0.3s ease;
         z-index: 999;
-        top: 4rem;
-        height: calc(100vh - 4rem);
+        top: 3.5rem;
+        height: calc(100vh - 3.5rem);
     }
 
     .sidebar.active {
@@ -546,7 +550,7 @@ pre code {
 
     .main-content {
         margin-left: 0;
-        padding-top: 5rem;
+        padding-top: 4rem;
     }
 
     footer {
@@ -605,7 +609,9 @@ pre code {
 
 @media (max-width: 768px) {
     .theme-toggle {
-        bottom: 0.75rem;
-        left: 0.75rem;
+        margin: 1.5rem 1rem;
+        position: relative;
+        bottom: auto;
+        left: auto;
     }
 }
