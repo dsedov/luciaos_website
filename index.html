@@ -63,7 +63,8 @@
 <p>The design by commettee approach tried to make everyone happy -- made no one happy. The &quot;don't offend the user&quot; produced in unmanagable bloat.</p>
 <h2>How?</h2>
 <p>We find ourselves in a digital ecosystem with few viable alternatives. Challenging the status quo is difficult when every component of a system has been engineered for self-preservation. The memetic DNA actively resists change.</p>
-<p>Yet there's hope in this realization. Just as our current computing environment was built incrementally, we can engineer a better experience step by step, founded on new values and principles. The shortcomings of today's systems create space for innovation.</p>
+<p>I don’t claim to have all the answers. I can be wrong about some of the details or even all of the details. In fact, no one has the answers until we try to change.</p>
+<p>There’s hope in this realization. Just as our current computing environment was built incrementally, we can engineer a better experience step by step, founded on new values and principles. The shortcomings of today's systems create space for innovation.</p>
 <p>Start small -- make big impact.</p>
 <p>Modern harware is billions times faster than what was available 30 years ago, yet it's not billion times more useful. The faster the hardware grew the more convoluted software became.</p>
 <p>What do we want from a modern computer? What will covers most of our needs? What has to run locally and what can be offsourced to a more efficiently designed provider? By answering those questions we can work backward and describe an ideal system at an interaction level, at a software level, at an OS level and finally at a hardware level.</p>
@@ -72,10 +73,47 @@
 
         </main>
     </div>
+
+    <button class="theme-toggle" aria-label="Toggle theme">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+    </button>
+
     <script>
+        // Mobile menu toggle
         document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
             document.querySelector('.sidebar').classList.toggle('active');
             this.classList.toggle('active');
+        });
+
+        // Theme toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const html = document.documentElement;
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            html.setAttribute('data-theme', savedTheme);
+            themeToggle.setAttribute('data-theme', savedTheme);
+        }
+
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            themeToggle.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
         });
     </script>
 </body>
