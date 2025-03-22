@@ -33,12 +33,15 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
+    font-family: "Castoro", Georgia, "Times New Roman", serif;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--primary-color);
-    font-weight: 400;
-    font-size: 16px;
+    font-weight: 300;
+    font-size: 18px;
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Layout */
@@ -67,7 +70,7 @@ body {
     color: var(--sidebar-text-color);
     text-decoration: none;
     font-size: 1.6rem;
-    font-weight: 700;
+    font-weight: 400;
     letter-spacing: 0.1em;
 }
 
@@ -150,8 +153,8 @@ body {
 /* Typography */
 h1, h2, h3 {
     color: var(--header-color);
-    letter-spacing: 0.0em;
-    font-weight: 700;
+    letter-spacing: 0.02em;
+    font-weight: 400;
 }
 
 h1 {
