@@ -12,6 +12,10 @@ eleventyNavigation:
 
 ---
 
+### Reading list
+https://en.wikipedia.org/wiki/Down_and_Out_in_the_Magic_Kingdom
+https://darioamodei.com/machines-of-loving-grace
+
 ### Direct Answer
 
 Your idea for an OS where the file system is not exposed, and users interact entirely through natural language—such as asking to "open the book I was writing yesterday about 'blah blah'"—is fascinating and aligns with current AI trends. However, based on available information, it seems likely that no such OS is currently on the market or widely known.

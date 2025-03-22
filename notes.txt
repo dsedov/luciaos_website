@@ -31,3 +31,9 @@ will everyone have access to these technologies?
 how to get developing world governments to adopt them while respecting the principle of self-determination
 
 
+There is also a clear opportunity for AI to be used to help provision government services—such as health benefits or social services—that are in principle available to everyone but in practice often severely lacking, and worse in some places than others. This includes health services, the DMV, taxes, social security, building code enforcement, and so on. Having a very thoughtful and informed AI whose job is to give you everything you’re legally entitled to by the government in a way you can understand
+
+
+One area humans are likely to maintain a relative (or even absolute) advantage for a significant time is the physical world. Thus, I think that the human economy may continue to make sense even a little past the point
+
+people should have autonomy and responsibility over their own lives and choices
