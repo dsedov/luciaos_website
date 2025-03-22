@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUCIA OS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <div class="layout">
+        <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+        </button>
         <aside class="sidebar">
             <div class="sidebar-header">
                 <a href="/" class="nav-brand">LUCIA OS</a>
@@ -17,11 +25,26 @@
                                 <a href="/" aria-current="page">
                                     Home
                                 </a></li><li>
-                                <a href="/about/" >
-                                    About
+                                <a href="/what_people_do/" >
+                                    What do People do?
                                 </a></li><li>
-                                <a href="/resources/" >
-                                    Resources
+                                <a href="/building_blocks/" >
+                                    Building Blocks
+                                </a></li><li>
+                                <a href="/chores/" >
+                                    Chores
+                                </a></li><li>
+                                <a href="/creativity/" >
+                                    Creativity
+                                </a></li><li>
+                                <a href="/work/" >
+                                    Work
+                                </a></li><li>
+                                <a href="/entertainment/" >
+                                    Entertainment
+                                </a></li><li>
+                                <a href="/infodump/" >
+                                    Info Dump
                                 </a></li><li>
                                 <a href="/contact/" >
                                     Contact
@@ -29,21 +52,27 @@
             </nav>
         </aside>
         <main class="main-content">
-            <h1>Welcome to LUCIA OS</h1>
-<p>LUCIA OS is a modern, efficient, and user-friendly operating system designed for the next generation of computing.</p>
-<h2>Quick Start</h2>
-<ul>
-<li><a href="/resources#getting-started">Get Started</a></li>
-<li><a href="/about">Learn More</a></li>
-<li><a href="/resources#community">Join the Community</a></li>
-</ul>
-<h2>Latest Updates</h2>
-<p>Stay tuned for the latest updates and announcements about LUCIA OS development.</p>
+            <h1>The Beginning</h1>
+<p>Imagine a world without files, folders, or the organization systems we've come to rely on. Unsettling, isn't it? But this discomfort stems from what we've been conditioned to accept as normal computing.</p>
+<p>The balance between user experience and system requirements has historically favored machines over humans. Computing evolution began with binary code (1s and 0s), progressed to Assembly language, and continued upward through increasingly abstract layers: kernels, drivers, operating systems, graphical interfaces, and input devices—culminating in what we recognize as modern computing.</p>
+<p>Standing on the shoulders of giants, we've inherited a comfortable yet compromised computing paradigm. We've accepted certain interaction patterns simply because they were presented as the standard. After all, computers are designed to make difficult tasks manageable, and we've been willing to adapt our behavior to benefit from these powerful tools.</p>
+<p>Something fundamental shifted along the way. Perhaps it was the emergence of the internet, the acceleration of information exchange, or seemingly innocent design decisions that compounded over time. Gradually, computing's utility was overshadowed by information warfare, cybercrime, and an attention-based economy that prioritizes engagement over empowerment.</p>
+<p>We find ourselves in a digital ecosystem with few viable alternatives. Challenging the status quo is difficult because every component has been engineered for self-preservation. The system's memetic DNA actively resists meaningful change.</p>
+<p>Yet there's hope in this realization. Just as our current computing environment was built incrementally, we can engineer a better experience step by step, founded on new values and principles. The shortcomings of today's systems actually create space for innovation—substantial space.</p>
+<p>LUCIA OS represents our commitment to reimagining computing from first principles, prioritizing human needs without being constrained by legacy conventions.</p>
+<pre><code>LUCIA&gt; How are you today?
+
+User&gt; Can you help my wife to pay for car registration? I took a picture of the letter yesterday. 
+</code></pre>
+<h2>Important parts</h2>
 
         </main>
     </div>
-    <footer>
-        <p>&copy; 2025 LUCIA OS. All rights reserved.</p>
-    </footer>
+    <script>
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+    </script>
 </body>
 </html> 

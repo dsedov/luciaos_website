@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - LUCIA OS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <div class="layout">
+        <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+        </button>
         <aside class="sidebar">
             <div class="sidebar-header">
                 <a href="/" class="nav-brand">LUCIA OS</a>
@@ -17,11 +25,26 @@
                                 <a href="/" >
                                     Home
                                 </a></li><li>
-                                <a href="/about/" >
-                                    About
+                                <a href="/what_people_do/" >
+                                    What do People do?
                                 </a></li><li>
-                                <a href="/resources/" >
-                                    Resources
+                                <a href="/building_blocks/" >
+                                    Building Blocks
+                                </a></li><li>
+                                <a href="/chores/" >
+                                    Chores
+                                </a></li><li>
+                                <a href="/creativity/" >
+                                    Creativity
+                                </a></li><li>
+                                <a href="/work/" >
+                                    Work
+                                </a></li><li>
+                                <a href="/entertainment/" >
+                                    Entertainment
+                                </a></li><li>
+                                <a href="/infodump/" >
+                                    Info Dump
                                 </a></li><li>
                                 <a href="/contact/" aria-current="page">
                                     Contact
@@ -30,18 +53,17 @@
         </aside>
         <main class="main-content">
             <h1>Contact</h1>
-<h2>Connect with us</h2>
 <ul>
-<li><a href="https://github.com/yourusername">GitHub</a></li>
-<li><a href="https://twitter.com/yourusername">Twitter</a></li>
-<li><a href="https://linkedin.com/in/yourusername">LinkedIn</a></li>
+<li><a href="https://x.com/xsedovx">X</a></li>
 </ul>
-<p>Feel free to reach out to us through any of these platforms. We're always happy to hear from the community!</p>
 
         </main>
     </div>
-    <footer>
-        <p>&copy; 2025 LUCIA OS. All rights reserved.</p>
-    </footer>
+    <script>
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+    </script>
 </body>
 </html> 
