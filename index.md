@@ -21,7 +21,9 @@ The design by commettee approach tried to make everyone happy -- made no one hap
 
 We find ourselves in a digital ecosystem with few viable alternatives. Challenging the status quo is difficult when every component of a system has been engineered for self-preservation. The memetic DNA actively resists change.
 
-Yet there's hope in this realization. Just as our current computing environment was built incrementally, we can engineer a better experience step by step, founded on new values and principles. The shortcomings of today's systems create space for innovation.
+I don’t claim to have all the answers. I can be wrong about some of the details or even all of the details. In fact, no one has the answers until we try to change. 
+
+There’s hope in this realization. Just as our current computing environment was built incrementally, we can engineer a better experience step by step, founded on new values and principles. The shortcomings of today's systems create space for innovation.
 
 Start small -- make big impact.
 
