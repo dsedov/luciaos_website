@@ -27,24 +27,39 @@
                 <ul class="nav-links">
                     {%- for entry in collections.all | sortByOrder -%}
                         {%- if entry.data.eleventyNavigation.parent == undefined -%}
-                            <li>
-                                <a href="{{ entry.url }}" {% if entry.url == page.url %}aria-current="page"{% endif %}>
-                                    {{ entry.data.eleventyNavigation.key }}
-                                </a>
-                                {%- if entry.data.eleventyNavigation.key == "Components" -%}
-                                    <ul class="sub-nav">
-                                        {%- for component in collections.components -%}
-                                            {%- if component.data.eleventyNavigation.parent == "Components" -%}
-                                                <li>
-                                                    <a href="{{ component.url }}" {% if component.url == page.url %}aria-current="page"{% endif %}>
-                                                        {{ component.data.eleventyNavigation.key }}
-                                                    </a>
-                                                </li>
-                                            {%- endif -%}
-                                        {%- endfor -%}
-                                    </ul>
-                                {%- endif -%}
-                            </li>
+                            {%- if entry.data.eleventyNavigation.key == "Home" or not page.url.startsWith("/external/") and not page.url.startsWith("/components/") or entry.data.eleventyNavigation.key == "External" and page.url.startsWith("/external/") or entry.data.eleventyNavigation.key == "Components" and page.url.startsWith("/components/") -%}
+                                <li>
+                                    <a href="{{ entry.url }}" {% if entry.url == page.url %}aria-current="page"{% endif %}>
+                                        {{ entry.data.eleventyNavigation.key }}
+                                    </a>
+                                    {%- if entry.data.eleventyNavigation.key == "Components" and page.url.startsWith("/components/") -%}
+                                        <ul class="sub-nav">
+                                            {%- for component in collections.components -%}
+                                                {%- if component.data.eleventyNavigation.parent == "Components" -%}
+                                                    <li>
+                                                        <a href="{{ component.url }}" {% if component.url == page.url %}aria-current="page"{% endif %}>
+                                                            {{ component.data.eleventyNavigation.key }}
+                                                        </a>
+                                                    </li>
+                                                {%- endif -%}
+                                            {%- endfor -%}
+                                        </ul>
+                                    {%- endif -%}
+                                    {%- if entry.data.eleventyNavigation.key == "External" and page.url.startsWith("/external/") -%}
+                                        <ul class="sub-nav">
+                                            {%- for doc in collections.external -%}
+                                                {%- if doc.data.eleventyNavigation.parent == "External" -%}
+                                                    <li>
+                                                        <a href="{{ doc.url }}" {% if doc.url == page.url %}aria-current="page"{% endif %}>
+                                                            {{ doc.data.eleventyNavigation.key }}
+                                                        </a>
+                                                    </li>
+                                                {%- endif -%}
+                                            {%- endfor -%}
+                                        </ul>
+                                    {%- endif -%}
+                                </li>
+                            {%- endif -%}
                         {%- endif -%}
                     {%- endfor -%}
                 </ul>

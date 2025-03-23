@@ -27,9 +27,34 @@ module.exports = function(eleventyConfig) {
         return collectionApi.getFilteredByGlob("components/**/*.{md,njk}");
     });
 
+    eleventyConfig.addCollection("external", function(collectionApi) {
+        const externalDocs = collectionApi.getFilteredByGlob("external/**/*.md");
+        // Ensure each external doc has proper navigation data
+        externalDocs.forEach(doc => {
+            if (!doc.data.eleventyNavigation) {
+                doc.data.eleventyNavigation = {};
+            }
+            // Don't modify the index page
+            if (doc.url !== "/external/") {
+                doc.data.eleventyNavigation.parent = "External";
+            }
+        });
+        return externalDocs;
+    });
+
     // Add a filter for sorting navigation items
     eleventyConfig.addFilter("sortByOrder", function(values) {
         return values.sort((a, b) => a.data.eleventyNavigation.order - b.data.eleventyNavigation.order);
+    });
+
+    // Add filter to filter navigation items by section
+    eleventyConfig.addFilter("filterBySection", function(values, section) {
+        return values.filter(item => {
+            // Include the section's index page
+            if (item.url === `/${section}/`) return true;
+            // Include all pages under the section
+            return item.url.startsWith(`/${section}/`);
+        });
     });
 
     return {

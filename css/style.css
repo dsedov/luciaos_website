@@ -292,14 +292,14 @@ pre {
     padding: 20px;
     border-radius: 8px;
     margin: 1rem 0;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: "Castoro", Georgia, "Times New Roman", serif;
     white-space: pre-wrap;
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
 
 code {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: "Castoro", Georgia, "Times New Roman", serif;
     font-size: 1em;
     padding: 0.2em 0.4em;
     background-color: var(--header-color);
