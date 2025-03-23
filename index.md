@@ -6,16 +6,22 @@ eleventyNavigation:
   order: 1
 ---
 ```
-Centered on people, LUCIA OS crafts computing from first principles
+Centered on people, Lucia crafts computing from first principles
 ```
 
 ## 1. What's the Problem?
 
-Imagine a world without files, folders, or organizational systems. Unsettling, isn't it? This discomfort stems from what you've been conditioned to accept as norm.
+World without files, folders, or organizational systems is unsettling, isn't it? This reaction reveals how deeply we've internalized computing conventions that were never inherently natural to human cognition. They simply became standard through repetition and ubiquity. When I speak of "computers," I'm referring not just to traditional desktop machines, but to the entire ecosystem of digital interfaces that now permeate our lives: smartphones, tablets, smart TVs, watches, thermostats, and countless other devices. What unites these technologies is not their form factor but a fundamental dynamic: rather than these systems adapting to accommodate human intuition, we have collectively modified our thought patterns, organizational instincts, and daily habits to accommodate their limitations and requirements. 
 
-We've inherited a computing paradigm that's comfortable yet compromised. We accept certain patterns simply because they were presented as standard. Computers, designed to make difficult tasks manageable, made us willing to adapt our behavior to reap the benefits.
+You may be asking why I'm criticizing modern UX. Clearly many talented designers and engineers think tirelessly about how to make our experiences more natural and make our lives better. I believe they all try to truly make our lives better, but they're held by technological convention. The fact that we praise current design innovations just tells me that we're so far away from what people actually need that any small move towards "natural" feels like a huge achievement.
 
-The balance between user experience and system requirements has always favored the machines. Computing began with physical hardware and electrical signals, progressed through increasingly abstract layers: machine code (1s and 0s), assembly language, compilers, high-level programming languages, kernels, device drivers, operating systems, application frameworks, graphical interfaces, and user experience design. We've built layer upon layer in a race for competitive technology, never pausing to reevaluate how we design these systems.
+Let's go back a bit.
+
+The balance between user experience and system requirements has never favored people. Computing began with physical hardware and electrical signals, progressed through increasingly abstract layers: machine code (1s and 0s), assembly language, compilers, high-level programming languages, kernels, device drivers, operating systems, application frameworks, graphical interfaces, and user experience design. We've built layers upon layers in a race for to take advanted of latest processors, never pausing to reevaluate how we design these systems in a first place. 
+
+The positive outcome is that more people can use computers today than ever before. The price we've paid is a fundamental shift in human cognition and behavior. Rather than computers adapting to human thought patterns, we've collectively rewired ourselves to think like the machines. We've learned to navigate hierarchical file systems, memorize obscure keyboard shortcuts, and understand cryptic error messages. We've developed "digital patience" for slow loading screens and scheduled our lives around software updates. Our communication has grown more structured, our problem-solving more algorithmic, and our attention spans calibrated to notification cycles. The democratization of computing access wasn't achieved by making computers truly intuitive to the human mind, but by slowly reshaping humanity to better interface with our digital creations. We didn't build technology that truly understands us; we rebuilt ourselves to understand it.
+
+--- END ---
 
 Modern hardware is billions of times faster than what was available 30 years ago, yet it's not billions of times more useful. The faster hardware grew, the more convoluted software became - a compressed evolution of computing power without a corresponding revolution in human-computer interaction.
 
@@ -71,4 +77,4 @@ This won't be easy. There will be intrinsic complexity and human resistance. Som
 
 But the potential upside is worth the effort. By questioning our fundamental assumptions about computing, we open the door to systems that are not just incrementally better, but transformatively more aligned with human needs and capabilities.
 
-LUCIA OS is the first step on this journey - an invitation to reimagine computing from first principles with humans at the center.
+Lucia is the first step on this journey - an invitation to reimagine computing from first principles with humans at the center.
