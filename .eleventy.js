@@ -27,19 +27,25 @@ module.exports = function(eleventyConfig) {
         return collectionApi.getFilteredByGlob("components/**/*.{md,njk}");
     });
 
-    eleventyConfig.addCollection("external", function(collectionApi) {
-        const externalDocs = collectionApi.getFilteredByGlob("external/**/*.md");
-        // Ensure each external doc has proper navigation data
-        externalDocs.forEach(doc => {
-            if (!doc.data.eleventyNavigation) {
-                doc.data.eleventyNavigation = {};
-            }
-            // Don't modify the index page
-            if (doc.url !== "/external/") {
-                doc.data.eleventyNavigation.parent = "External";
-            }
+    // Special sections that should show sub-articles only when in their section
+    const specialSections = ["external", "architecture"];
+
+    // Create collections for special sections
+    specialSections.forEach(section => {
+        eleventyConfig.addCollection(section, function(collectionApi) {
+            const sectionDocs = collectionApi.getFilteredByGlob(`${section}/**/*.md`);
+            // Ensure each doc has proper navigation data
+            sectionDocs.forEach(doc => {
+                if (!doc.data.eleventyNavigation) {
+                    doc.data.eleventyNavigation = {};
+                }
+                // Don't modify the index page
+                if (doc.url !== `/${section}/`) {
+                    doc.data.eleventyNavigation.parent = section.charAt(0).toUpperCase() + section.slice(1);
+                }
+            });
+            return sectionDocs;
         });
-        return externalDocs;
     });
 
     // Add a filter for sorting navigation items

@@ -27,7 +27,19 @@
                 <ul class="nav-links">
                     {%- for entry in collections.all | sortByOrder -%}
                         {%- if entry.data.eleventyNavigation.parent == undefined -%}
-                            {%- if entry.data.eleventyNavigation.key == "Home" or not page.url.startsWith("/external/") and not page.url.startsWith("/components/") or entry.data.eleventyNavigation.key == "External" and page.url.startsWith("/external/") or entry.data.eleventyNavigation.key == "Components" and page.url.startsWith("/components/") -%}
+                            {%- set isSpecialSection = false -%}
+                            {%- set currentSection = "" -%}
+                            {%- if page.url.startsWith("/external/") -%}
+                                {%- set currentSection = "external" -%}
+                                {%- set isSpecialSection = true -%}
+                            {%- elif page.url.startsWith("/architecture/") -%}
+                                {%- set currentSection = "architecture" -%}
+                                {%- set isSpecialSection = true -%}
+                            {%- endif -%}
+                            {%- if entry.data.eleventyNavigation.key == "Home" or 
+                                  (not isSpecialSection) or 
+                                  (isSpecialSection and entry.data.eleventyNavigation.key | capitalize == currentSection | capitalize) or 
+                                  entry.data.eleventyNavigation.key == "Components" and page.url.startsWith("/components/") -%}
                                 <li>
                                     <a href="{{ entry.url }}" {% if entry.url == page.url %}aria-current="page"{% endif %}>
                                         {{ entry.data.eleventyNavigation.key }}
@@ -45,10 +57,23 @@
                                             {%- endfor -%}
                                         </ul>
                                     {%- endif -%}
-                                    {%- if entry.data.eleventyNavigation.key == "External" and page.url.startsWith("/external/") -%}
+                                    {%- if entry.data.eleventyNavigation.key | capitalize == "External" and page.url.startsWith("/external/") -%}
                                         <ul class="sub-nav">
                                             {%- for doc in collections.external -%}
                                                 {%- if doc.data.eleventyNavigation.parent == "External" -%}
+                                                    <li>
+                                                        <a href="{{ doc.url }}" {% if doc.url == page.url %}aria-current="page"{% endif %}>
+                                                            {{ doc.data.eleventyNavigation.key }}
+                                                        </a>
+                                                    </li>
+                                                {%- endif -%}
+                                            {%- endfor -%}
+                                        </ul>
+                                    {%- endif -%}
+                                    {%- if entry.data.eleventyNavigation.key | capitalize == "Architecture" and page.url.startsWith("/architecture/") -%}
+                                        <ul class="sub-nav">
+                                            {%- for doc in collections.architecture -%}
+                                                {%- if doc.data.eleventyNavigation.parent == "Architecture" -%}
                                                     <li>
                                                         <a href="{{ doc.url }}" {% if doc.url == page.url %}aria-current="page"{% endif %}>
                                                             {{ doc.data.eleventyNavigation.key }}
