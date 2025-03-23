@@ -13,25 +13,25 @@ You're in a world without files, folders, or organizational systems. Unsettling,
 
 Standing on the shoulders of giants, we've inherited a comfortable yet compromised computing paradigm. We've accepted certain patterns simply because they were presented as the standard. Computers, designed to make difficult tasks manageable, made us willing to adapt our behavior to reap the benefits.
 
-The balance between user experience and system requirements always favored the machines. Computing began with 1s and 0s, progressed to Assembly language, upward through increasingly abstract layers: kernels, drivers, operating systems, graphical user interfaces, input devices, periphery, form factors... We've built layers upon layers, shifting and adding complexity in a race for the latest competitive technology. We didn't allow for time to stop and think or reavaluate how we design these systems. 
+The balance between user experience and system requirements always favored the machines. Computing began with 1s and 0s, progressed to Assembly language, upward through increasingly abstract layers: kernels, drivers, operating systems, graphical user interfaces, input devices, periphery, form factors... We've built layers upon layers, shifting and adding complexity in a race for the latest competitive technology. We didn't allow for time to stop and think or reevaluate how we design these systems. 
 
-The design by commettee approach tried to make everyone happy -- made no one happy. The "don't offend the user" produced in unmanagable bloat.
+The design by committee approach tried to make everyone happy -- but made no one happy. The "don't offend the user" approach produced unmanageable bloat.
+
+Most people underestimate just how radical the upside of reimagining computing could be, just as they underestimate how deeply entrenched our current computing paradigms have become. The only thing standing between us and a fundamentally better computing experience is our willingness to question long-established norms.
 
 ## How?
 
 We find ourselves in a digital ecosystem with few viable alternatives. Challenging the status quo is difficult when every component of a system has been engineered for self-preservation. The memetic DNA actively resists change.
 
-I don’t claim to have all the answers. I can be wrong about some of the details or even all of the details. In fact, no one has the answers until we try to change. 
+I don't claim to have all the answers. I can be wrong about some of the details or even all of the details. In fact, no one has the answers until we try to change. 
 
-There’s hope in this realization. Just as our current computing environment was built incrementally, we can engineer a better experience step by step, founded on new values and principles. The shortcomings of today's systems create space for innovation.
+There's hope in this realization. Just as our current computing environment was built incrementally, we can engineer a better experience step by step, founded on new values and principles. The shortcomings of today's systems create space for innovation.
 
 Start small -- make big impact.
 
-Modern harware is billions times faster than what was available 30 years ago, yet it's not billion times more useful. The faster the hardware grew the more convoluted software became.
+Modern hardware is billions of times faster than what was available 30 years ago, yet it's not billions of times more useful. The faster the hardware grew, the more convoluted software became. We've experienced a "compressed evolution" of computing power without a corresponding revolution in how we conceptualize the human-computer relationship.
 
-What do we want from a modern computer? What will covers most of our needs? What has to run locally and what can be offsourced to a more efficiently designed provider? By answering those questions we can work backward and describe an ideal system at an interaction level, at a software level, at an OS level and finally at a hardware level.
+Fear of change isn't enough to motivate progress. We need an inspiring vision of what computing could be. One that focuses not on faster processors or higher resolution displays, but on fundamentally transforming how humans interact with machines. A future where we aren't adapting to computers, but where computing adapts to our natural human needs and capabilities.
 
-d
+What do we want from a modern computer? What will cover most of our needs? What has to run locally and what can be outsourced to a more efficiently designed provider? By answering those questions, we can work backward and describe an ideal system at an interaction level, at a software level, at an OS level, and finally at a hardware level.
 
-
-## Important parts
