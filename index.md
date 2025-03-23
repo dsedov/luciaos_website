@@ -13,7 +13,7 @@ Centered on people, Lucia crafts computing from first principles
 
 World without files, folders, or organizational systems is unsettling, isn't it? This reaction reveals how deeply we've internalized computing conventions that were never inherently natural to human cognition. They simply became standard through repetition and ubiquity. When I speak of "computers," I'm referring not just to traditional desktop machines, but to the entire ecosystem of digital interfaces that now permeate our lives: smartphones, tablets, smart TVs, watches, thermostats, and countless other devices. What unites these technologies is not their form factor but a fundamental dynamic: rather than these systems adapting to accommodate human intuition, we have collectively modified our thought patterns, organizational instincts, and daily habits to accommodate their limitations and requirements. 
 
-You may be asking why I'm criticizing modern UX. Clearly many talented designers and engineers think tirelessly about how to make our experiences more natural and make our lives better. I believe they all try to truly make our lives better, but they're held by technological convention. The fact that we praise current design innovations just tells me that we're so far away from what people actually need that any small move towards "natural" feels like a huge achievement.
+You may be asking why I'm criticizing modern user experience. Clearly many talented designers and engineers think tirelessly about how to make our experiences more natural and make our lives better. I believe they all try to truly make our lives better, but they're held by technological convention. The fact that we praise current design innovations just tells me that we're so far away from what people actually need that any small move towards "natural" feels like a huge achievement.
 
 Let's go back a bit.
 
@@ -27,7 +27,6 @@ Modern hardware is billions of times faster than what was available 30 years ago
 
 File systems are archaic, divorced from human thought patterns. Your mind doesn't store memories in folders. You recall a vacation through emotions felt, people present, weather that day—through context. Yet we've forced ourselves to adapt to rigid, mechanistic storage systems because that's what computers could handle decades ago.
 
-The current paradigm forces high cognitive overhead on users. You shouldn't need to remember whether a photo is in "Pictures/Vacation/Hawaii/Day2" or "Documents/2023/Trip Photos/Hawaii." The mental models required to use computers effectively today are artifacts of engineering constraints, not human-centered design.
 
 Most people underestimate how radical the upside of reimagining computing could be, just as they underestimate how deeply entrenched our current paradigms have become. The only thing standing between us and a fundamentally better computing experience is our willingness to question established norms.
 
@@ -37,7 +36,7 @@ The true potential of computing isn't in adding more complexity to existing syst
 
 Context is the new file system. Humans naturally understand the world through context—not through arbitrary hierarchies. When you receive a photo or document, its meaning comes from its relationships: who sent it, what it contains, how it relates to your other information. LUCIA OS recognizes that context is the fundamental organizing principle of human thought.
 
-Imagine your computer as a person who really gets you. Your communication bandwidth is much greater with someone familiar—you almost understand each other half-sentence in. That's the relationship LUCIA OS aims to create between you and your computer. Not a tool to be mastered, but a partner that deeply understands your patterns, preferences, and needs.
+Imagine your computer as a person who really gets you. Your communication bandwidth is much greater with someone familiar—you almost understand each other half-sentence in. That's the relationship Lucia aims to create between you and your computer. Not a tool to be mastered, but a partner that deeply understands your patterns, preferences, and needs.
 
 Heavy computation can happen remotely, freeing your local device from unnecessary constraints. The artificial boundary between "local" and "cloud" disappears, creating a unified experience that leverages the best of both worlds. Your experience remains consistent while complex processing happens invisibly in the background.
 
