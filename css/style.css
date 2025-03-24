@@ -1,31 +1,31 @@
 /* Base styles */
 :root {
     --sidebar-width: 250px;
-    --primary-color: #d9dadc;
-    --secondary-color: #203830;
+    --primary-color: #ffffff;
+    --secondary-color: #ffffff;
     --text-color: #0e1d35;
-    --header-color: #163762;
+    --header-color: #203830;
     --border-color: #5e2c0d;
     --link-color: #3a79b7;
     --hover-color: #2a5a8a;
     --external-link-color: #c54f3b;
-    --sidebar-text-color: #d4d9e2;
-    --theme-toggle-bg: #ffffff;
-    --theme-toggle-color: #203830;
+    --sidebar-text-color: #203830;
+    --theme-toggle-bg: #203830;
+    --theme-toggle-color: #ffffff;
     --theme-toggle-shadow: rgba(0, 0, 0, 0.2);
 }
 
 [data-theme="dark"] {
-    --primary-color: #121a1d;
-    --secondary-color: #182327;
-    --text-color: #e0e0e0;
+    --primary-color: #1d1813;
+    --secondary-color: #1d1813;
+    --text-color: #fbf3cf;
     --header-color: #95ebea;
     --border-color: #404040;
     --link-color: #4a90e2;
     --hover-color: #357abd;
     --external-link-color: #e74c3c;
     --sidebar-text-color: #e0e0e0;
-    --theme-toggle-bg: #4a90e2;
+    --theme-toggle-bg: #f0983e;
     --theme-toggle-color: #ffffff;
     --theme-toggle-shadow: rgba(0, 0, 0, 0.4);
 }
