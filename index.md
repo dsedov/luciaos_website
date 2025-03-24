@@ -67,7 +67,7 @@ This won't be easy. There will be intrinsic complexity and human resistance. Som
 
 But the potential upside is worth the effort. By questioning our fundamental assumptions about computing, we open the door to systems that are not just incrementally better, but transformatively more aligned with human needs and capabilities.
 
-Lucia is the first step on this journey - an invitation to reimagine computing from first principles with humans at the center.
+
 
 
 

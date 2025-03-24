@@ -525,7 +525,7 @@ pre code {
     }
 
     .mobile-menu-toggle.active .hamburger:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
+        transform: rotate(45deg) translate(4px, 4px);
     }
 
     .mobile-menu-toggle.active .hamburger:nth-child(2) {
@@ -533,7 +533,7 @@ pre code {
     }
 
     .mobile-menu-toggle.active .hamburger:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px);
+        transform: rotate(-45deg) translate(5px, -5px);
     }
 
     .sidebar {
@@ -542,6 +542,7 @@ pre code {
         z-index: 999;
         top: 3.5rem;
         height: calc(100vh - 3.5rem);
+        width: 100%;
     }
 
     .sidebar.active {
@@ -594,17 +595,6 @@ pre code {
 
 .theme-toggle svg {
     display: none;
-}
-
-/* Remove the extra padding from sidebar since we don't need it anymore */
-.sidebar {
-    width: var(--sidebar-width);
-    color: var(--sidebar-text-color);
-    position: fixed;
-    height: 100vh;
-    overflow-y: auto;
-    padding: 1rem 0;
-    background-color: var(--secondary-color);
 }
 
 @media (max-width: 768px) {
