@@ -97,7 +97,8 @@ body {
 }
 
 .nav-links a:hover {
-    color: #ffffff;
+    color: var(--sidebar-text-color);
+    opacity: 0.8;
     background-color: rgba(255, 255, 255, 0.1);
     border-left: 3px solid var(--header-color);
     padding-left: calc(1rem - 3px);
@@ -127,7 +128,8 @@ body {
 }
 
 .sub-nav a:hover {
-    color: #ffffff;
+    color: var(--sidebar-text-color);
+    opacity: 0.8;
     background-color: rgba(255, 255, 255, 0.1);
     border-left: 3px solid var(--header-color);
     padding-left: calc(1rem - 3px);
@@ -222,7 +224,8 @@ a[href^="#"]:hover {
 .sidebar a:hover,
 .sidebar a[href^="/"]:hover,
 .sidebar a[href^="#"]:hover {
-    color: #ffffff;
+    color: var(--sidebar-text-color);
+    opacity: 0.8;
 }
 
 /* Keep external links in sidebar red */
