@@ -5,25 +5,32 @@ eleventyNavigation:
   key: Home
   order: 1
 ---
-```
-Centered on people, Lucia crafts computing from first principles
-```
+## The Human Cost of Computing
 
-## 1. What's the Problem?
+When I speak of computers, I speak not only of traditional desktop machines and laptops, but of an entire ecosystem of digital devices that permeate our lives: smartphones, tablets, TVs, watches, thermostats, and countless others. What unites these is that, collectively, they've changed our thought patterns, organizational instincts, and daily habits to accommodate the historical limitations and requirements of underlying technologies.
 
-World without files, folders, or organizational systems is unsettling, isn't it? This reaction reveals how deeply we've internalized computing conventions that were never inherently natural. They simply became standard through repetition and ubiquity. When I speak of "computers," I'm referring not just to traditional desktop machines, but to the entire ecosystem of digital interfaces that permeate our lives: smartphones, tablets, smart TVs, watches, thermostats, and countless other devices. What unites these technologies is a fundamental dynamic: rather than systems adapting to accommodate human intuition, we have collectively modified our thought patterns, organizational instincts, and daily habits to accommodate their limitations and requirements. 
+Many talented designers and engineers today think tirelessly about how to make these systems more natural and more useful, while being held by technological convention. 
 
-You may be asking why I'm criticizing modern user experience. Clearly many talented designers and engineers think tirelessly about how to make it more natural and useful. And I do believe they try to truly make our lives better, but neing held by a technological convention, they do so within current computing paradigm. The fact that we praise modern design innovations tells me that we colelctivly are quite far away from what people need that any small move towards "natural" feels like a huge achievement.
+These limitations became standard through repetition and ubiquity even as they faded away with technological progress. Changing even the smallest assumption has friction. For example, a world without files, folders, or organizational systems would feel unsettling. Trying to introduce a non-QWERTY non-staggered keyboard would be met with public rejection, even though the encumbant is neither efficient nor ergonomic way to enter text. It reveals just how deeply we've internalized conventions that were unnatural to begin with, but rather grew from legacy constraints.  
 
-Let's track back a bit.
+Computing began with electrical signals in physical hardware. 
 
-The balance between user experience and system requirements has never favored people. Computing began with electrical signals and physical hardware, progressed through increasingly abstract layers: machine code (1s and 0s), assembly language, compilers, high-level programming languages, kernels, device drivers, operating systems, application frameworks, graphical interfaces, and user experience design. We've built layers upon layers in a race to take advantege of latest processors, never pausing to reevaluate how we design systems in a first place. 
+It progressed through increasingly abstract layers of 1s and 0s, assembly language, compilers, operating systems, high-level programming languages, application frameworks, graphical interfaces, and user experience design. We've built layers upon layers in a race to take advantege of growing computing power, never pausing to reevaluate how we design these systems. 
 
-The positive outcome is that more people can use computers today than ever before. The price we've paid is a fundamental shift in human cognition and behavior. Rather than computers adapting to human thought patterns, we've collectively rewired ourselves to think like the machines. We've learned to navigate hierarchical file systems, memorize obscure keyboard shortcuts, and understand cryptic error messages. We've developed "digital patience" for slow loading screens and scheduled our lives around software updates. Our communication has grown more structured, our problem-solving more algorithmic, and our attention spans calibrated to notification cycles. The democratization of computing access wasn't achieved by making computers truly intuitive to the human mind, but by slowly reshaping humanity to better interface with our digital creations. We didn't build technology that truly understands us; we rebuilt ourselves to understand it.
+Moore's Law allowed us to speedrun to where we are today.
 
-## 2. What's the Solution?
+More people can use computers today than ever before, which is good. The price we've paid, however, is a fundamental shift in human cognition and behavior. Rather than computers adapting to human thought patterns, we've collectively rewired ourselves to think like the machines. We've learned to navigate hierarchical file systems, memorize obscure keyboard shortcuts, while bending our fingers in unnatural gymnastics. We've developed "digital patience" for slow loading screens and scheduled our lives around software updates. 
 
-Most people underestimate how radical the upside of reimagining computing could be, just as they underestimate how deeply entrenched our current paradigms have become. The true potential of computing isn't in adding more complexity to existing systems, but in reimagining the entire stack with human experience at the center. Our current paradigm emerged during an era of severe technical constraints that no longer exist.
+We are undoubtfully here and we are who we are. 
+
+We cannot change the past, however we can plot our path in whatever direction we want. We can shape our minds to mesh with the machines even more. Wwe can also take a step back and change the machines and how we interact with them radically. 
+
+## A New Computing Paradigm
+
+Most people underestimate how radical the upside of reimagining computing could be, just as they underestimate how deeply entrenched our current paradigms have become. 
+
+
+The true potential of computing isn't in adding more complexity to existing systems, but in reimagining the entire stack with human experience at the center. Our current paradigm emerged during an era of severe technical constraints that no longer exist.
 
 Context is the new file system. Humans naturally understand the world through context, not through arbitrary hierarchies. When you receive a photo or document, its meaning comes from its relationships: who sent it, what it contains, how it relates to your other information. We must recognize that context is the fundamental organizing principle of human thought.
 
@@ -39,7 +46,7 @@ The artificial boundary between documents and programs must dissolve. Today, we 
 
 This isn't about demolishing everything that came before, but creating space for a new computing paradigm—one that's simpler, more intuitive, and fundamentally aligned with human thought processes rather than machine architectures.
 
-## 3. How to Do It
+## Building the Future
 
 We find ourselves in a digital ecosystem with few viable alternatives. Challenging the status quo is difficult when every component of a system has been engineered for self-preservation.
 
@@ -81,3 +88,6 @@ File systems are archaic, divorced from human thought patterns. Your mind doesn'
 
 
 Most people underestimate how radical the upside of reimagining computing could be, just as they underestimate how deeply entrenched our current paradigms have become. The only thing standing between us and a fundamentally better computing experience is our willingness to question established norms.
+
+
+Our communication has grown more structured, our problem-solving more algorithmic, and our attention spans calibrated to notification cycles. The democratization of computing access wasn't achieved by making computers truly intuitive to the human mind, but by slowly reshaping humanity to better interface with our digital creations. We didn't build technology that truly understands us; we rebuilt ourselves to understand it.
