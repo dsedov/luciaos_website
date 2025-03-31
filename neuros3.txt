@@ -1,0 +1,158 @@
+Perfect place to start. Understanding the separation between **sensory modules** and **learning modules** is core to how the Thousand Brains Theory plays out in Monty—and what makes this architecture fundamentally different from classical pipelines in AI.
+
+Let’s break it down and connect it to what’s happening in the code you linked from Numenta’s Monty project.
+
+---
+
+## 🧠 Key Concept: Sensory Module ↔ Learning Module
+
+### 🌐 1. **What is a Sensory Module?**
+
+In the Monty/Thousand Brains model, a **sensory module** represents a *sensor with a narrow field of view*. It captures:
+
+- A **feature** (what was sensed)
+- A **location** (where it was sensed on the object)
+- A **sensor pose** (where the sensor itself is, relative to the object)
+- A **movement signal** (how the sensor moved to get here)
+
+It’s responsible for converting raw data (pixels, audio, characters…) into **sparse, semantically-meaningful features tied to locations**.
+
+🔑 It is **not** just a preprocessor. It's actively involved in learning a *reference frame* for the object, using the assumption:  
+> "To recognize a structure, I must know both *what* I sensed and *where* I sensed it."
+
+---
+
+### 🧠 2. **What is a Learning Module (Column)?**
+
+A learning module is like a **cortical column**.
+
+It receives:
+- Encoded **feature** and **location** data from one or more sensory modules
+- It *accumulates evidence* over time (from multiple sensor movements)
+- It tries to match what it's sensing now against previously learned **object models**
+- It builds and stores its own internal model of an object (as a set of features in locations)
+
+It can then:
+- Predict what it expects to see next
+- Vote for the likely object
+- Learn new objects from scratch if nothing matches
+
+---
+
+### 🔄 3. **How They Work Together (Flow)**
+
+Here’s a simplified data flow:
+
+```
+Raw Sensor Input (e.g. RGB patch, audio frame, word)
+       ↓
+[Sensory Module]
+       - Extracts features (edges, frequencies, embeddings)
+       - Gets pose info from the motor system
+       - Encodes (feature, location) pair in a sparse form (SDR or hash)
+       ↓
+[Learning Module]
+       - Uses (feature, location) to activate internal object representations
+       - Updates beliefs about which object is being sensed
+       - Outputs: predictions, object ID, feedback
+```
+
+---
+
+## 🔍 What the Monty Code is Doing (High-Level)
+
+In `abstract_monty_classes.py`, you’ll find the abstract base classes that define the **interface** and **structure** for both types of modules. Let’s look at the key ones:
+
+### `SensorModel` (abstract)
+```python
+class SensorModel(ABC):
+    @abstractmethod
+    def observe(self, env: SensorEnvironment) -> SensorReading:
+        ...
+```
+- This is the base class for *any* sensor: touch, vision, language, etc.
+- `observe()` returns a `SensorReading`, which contains:
+  - A **feature vector** (e.g., “red edge” or “token: cat”)
+  - The **location** on the object where this feature was observed
+  - Optional **movement metadata** (so the system knows how you got there)
+
+### `LearningModule` (abstract)
+```python
+class LearningModule(ABC):
+    @abstractmethod
+    def learn(self, observation: SensorReading):
+        ...
+```
+- This is a cortical-column-like module.
+- It takes the `SensorReading` from the sensor model and tries to **map it to an object** it’s already learning or has learned before.
+- Over time, it builds up an internal representation of the object.
+
+---
+
+## 🔬 Sensor Encoding in Practice
+
+You asked **how exactly the sensory module encodes raw data** into a form the learning module understands. This is the trickiest but most important part. Here’s what’s usually involved:
+
+### 1. **Feature Extraction**
+Depending on modality:
+- **Vision**: edge detection, color blob, object parts
+- **Text**: word/token embedding (e.g. word2vec/GPT token)
+- **Audio**: MFCC or frequency band activation
+
+These are typically preprocessed or downsampled heavily. We're not giving the whole image or sound—just a "fovea".
+
+### 2. **Pose and Location Encoding**
+This is critical: every feature has to be associated with a *relative location* on the object.
+
+- That might be a 2D coordinate (`x, y`)
+- Or a symbolic location (e.g., “start of sentence”)
+- In Monty, this is passed via the `SensorPose` object
+
+Numenta uses grid-cell-like mechanisms to encode location. In simplified versions, you can just treat it as a tuple or index.
+
+### 3. **Sparse Encoding**
+After combining the **feature + location**, the sensor module **encodes** this into a **sparse, high-dimensional vector**.
+
+Think of it like:
+```python
+sdr = hash(feature + location) → sparse bits set in a 2048-bit vector
+```
+
+This SDR is the common "language" passed to the learning module.
+
+---
+
+## 🧠 Where to Start Hands-On
+
+To play with this conceptually:
+
+### A. **Simulate a Sensor in Python**
+```python
+def simulate_sensor():
+    fovea = get_patch_from_image(x, y)
+    feature = extract_feature(fovea)      # e.g., "vertical edge"
+    location = (x, y)
+    return encode(feature, location)
+```
+
+### B. **Build a Basic Column**
+```python
+def learn_from_observation(sdr):
+    if match_existing_object(sdr):
+        update_belief(object_id)
+    else:
+        start_new_object_model(sdr)
+```
+
+### C. **Watch Voting Work**
+Give two columns (e.g., text and image) overlapping signals and have them converge on one object ID.
+
+---
+
+## 🧭 Next Step Options
+
+1. **Want to try writing a toy version of this in code?** We can write a super minimal sensory module + learning module prototype together.
+2. **Want help digging deeper into Monty's actual implementations?** I can walk you through their real classes and methods from source.
+3. **Or prefer to design your own simplified variant first?** We can sketch your own take on this without the constraints of Numenta’s API.
+
+What would you like to do next?

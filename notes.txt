@@ -1,3 +1,11 @@
+How can sensory motor system be at the core of an operating system?
+1. Sensory motor system can learn 
+
+
+I have an idea. There is a Thousand Brains Theory by Jeff Hawkins that explains how neocortex functions. It is essentially a large number of columns and each learns a full model of the world (objects and all) using sensory-motor learning (moving a sensor to learn about the objecy) When neo-cortex senses the world, by moving a hand or eye sacades - it has all those modules "vote" on what the object is, and if the object is unrecogrnized - it learns a new "entity". If we expand this to multi modality inside a computer - visual system scans static images, and frames in video with a narrow sensor (like the small visual field we have in vision) and another sensor that reads text (somehow - needs a new type of sensor) we can can teach a multi modal system. Sound can also be part of this as well. Now take this, I'm trying to come up with with a framework that would use this as a basis for a new generation of operating systems to power devices that think and act more human so that there is a very different UX between computers and people that is more natural. I also think that a system like that trained on enough data can develop a true common sense knowledge, unlike current deep learning systems. Please reserch deep into this and come up with your findings. I want an analysis of how feasable this is, what are the steps and a few paragraphs describing how this idea can be the basis of a new operating system - proposal.
+
+
+
 Of course no one can know the future with any certainty or precision, and the effects of powerful AI are likely to be even more unpredictable than past technological changes, so all of this is unavoidably going to consist of guesses.
 
 I think a concrete vision does more to advance discussion than a highly hedged and abstract one.
