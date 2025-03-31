@@ -34,15 +34,15 @@ AI assistants bolted onto a conventional OS certainly have their place. However,
 
 What we truly need is an operating system that is built differently from the start. By exploring principles of human cognition, we can build a foundation that will feel much more natural for human-computer interaction. A cognitive computer.
 
-At the core of this new architecture is the concept of a kernel. While traditional computers have many modules considered foundational, at the lowest level, there is typically a Von Neumann machine reading ones and zeros and executing a fixed instruction set. In a proposed cognitive computer, the kernel serves as the most fundamental unit of interest. These kernels are autonomous, and in aggregation can be multimodal. While each kernel specializes in a distinct modality, they can roughly be broken down into the following groups:
+At the core of this new architecture is the concept of a kernel. While traditional computers have many modules that are considered foundational, at the lowest level, there is typically a Von Neumann machine reading ones and zeros and executing a fixed instruction set. In a proposed cognitive computer, the kernel serves as the most fundamental unit of interest. These kernels are autonomous, and in aggregation are multimodal. While each kernel specializes in a distinct modality, they can roughly be broken down into the following groups:
 
-Sensing kernels perceive the world through text, vision, audio, touch, and even custom interfaces to legacy systems.
+1. **Sensing kernels** perceive the world through text, vision, audio, touch, and even custom interfaces to legacy systems.
 
-Learning kernels build models from sensing kernels, constructing the system's understanding of the world.
+2. **Learning kernels** build models from sensing kernels, constructing the system's understanding of the world.
 
-Motor kernels coordinate movement and attention, guiding sensor kernels to focus on important input data or steering the thinking process in productive directions.
+3. **Motor kernels** coordinate movement and attention, guiding sensor kernels to focus on important input data or steering the thinking process in productive directions.
 
-Expression kernels generate outputs like text, images, and sound. Think of them as reverse sensing kernels. They are also capable of sending information back into legacy systems.
+4. **Expression kernels** generate outputs like text, images, and sound. Think of them as reverse sensing kernels. They are also capable of sending information back into legacy systems.
 
 Together, these kernels build a cohesive understanding of a dynamic world and the system's place within it, not unlike how your own brain combines multi-modal sensory inputs, motor outputs, and introspection.
 
