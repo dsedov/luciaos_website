@@ -38,15 +38,15 @@ At the core of this new architecture is the concept of a kernel. While tradition
 
 1. **Sensing kernels** perceive the world through text, vision, audio, touch, and even custom interfaces to legacy systems.
 
-2. **Learning kernels** build models from sensing kernels, constructing the system's understanding of the world.
+2. **Learning kernels** build models from sensory input, constructing the system's understanding of the world.
 
 3. **Motor kernels** coordinate movement and attention, guiding sensor kernels to focus on important input data or steering the thinking process in productive directions.
 
 4. **Expression kernels** generate outputs like text, images, and sound. Think of them as reverse sensing kernels. They are also capable of sending information back into legacy systems.
 
-Together, these kernels build a cohesive understanding of a dynamic world and the system's place within it, not unlike how your own brain combines multi-modal sensory inputs, motor outputs, and introspection.
+Together, these kernels create a cohesive understanding of a dynamic world and the system's place within it, not unlike how your own brain combines multi-modal sensory inputs, motor outputs, and introspection.
 
-A cognitive computer has no files and no applications in the traditional sense. There is only the fluid experience of interacting with the world through kernels that continuously learn and evolve alongside the user. Information exists within the kernels like memories, interconnected and contextual, rather than as isolated items in folders.
+A cognitive computer has no files and no applications in the traditional sense. There is only the fluid experience of interacting with the world through thousands of kernels that continuously learn and evolve alongside the user. Information exists within the kernels like memories, interconnected and contextual, rather than as isolated items in folders.
 
 To make the transition between radically different paradigms like traditional computer and cognitive computer easier, we must develop a shared language, often using analogies, that helps us grasp the new system in more detail. In the next few sections I will try to explain hypothetical scenarios of how a user might use a cognitive computer and then dedicate a section building parallels between traditional and cognitive computing.
 
