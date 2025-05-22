@@ -31,11 +31,11 @@
                                     <a href="/architecture/" >
                                         Architecture
                                     </a><ul class="sub-nav"><li>
-                                                        <a href="/architecture/hardware/" aria-current="page">
+                                                        <a href="/architecture/hardware/" >
                                                             Hardware
                                                         </a>
                                                     </li><li>
-                                                        <a href="/architecture/roadmap/" >
+                                                        <a href="/architecture/roadmap/" aria-current="page">
                                                             Roadmap
                                                         </a>
                                                     </li></ul></li></ul>
@@ -55,8 +55,83 @@
             </button>
         </aside>
         <main class="main-content">
-            <h1>Hardware</h1>
-<p>Base hardware is Raspberry Pi 5 with ARM Cortex</p>
+            <h1>Roadmap</h1>
+<h1>LUCIA OS – Two‑Track Roadmap</h1>
+<p><strong>Draft v0.1 – 21 May 2025</strong></p>
+<hr>
+<h3>Concept</h3>
+<p>LUCIA OS advances along two parallel, loosely coupled rails:</p>
+<ol>
+<li><strong>User Experience (UX)</strong> – the human‑facing surface that grows in fluency and initiative.</li>
+<li><strong>Cognitive Technology Stack</strong> – the substrate that implements those abilities, evolving from today’s LLM foundations toward brain‑inspired kernels.</li>
+</ol>
+<p>The separation lets us ship useful features early while re‑architecting the core in the background.</p>
+<hr>
+<h2>Layer 1 — Proactive User Experience (UX)</h2>
+<ul>
+<li>
+<p><strong>Rising capability curve</strong>: picture a diagonal line that climbs as the interface learns to understand, remember, and reason across modalities.</p>
+</li>
+<li>
+<p><strong>Proactivity from day one</strong>:</p>
+<ul>
+<li>The OS owns its own <strong>e‑mail address and phone number</strong>.</li>
+<li>It can <strong>receive messages from external senders</strong> (friends, services, IoT devices) and ingest them as first‑class events.</li>
+<li>It <strong>initiates conversations</strong> with the user: summarising incoming information, asking clarifying questions, proposing actions.</li>
+</ul>
+</li>
+<li>
+<p><strong>Early implementation</strong>: off‑the‑shelf LLMs wrapped in a conversational shell handle language parsing, intent extraction, and basic summarisation.</p>
+</li>
+<li>
+<p><strong>Progression</strong>: memory becomes persistent, dialogue spans contexts, and the agent starts chaining reasoning loops (planning, simulation, delegation). The UI remains stable; only the depth behind interactions changes.</p>
+</li>
+</ul>
+<hr>
+<h2>Layer 2 — Cognitive Technology Stack</h2>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Underlying modules</th>
+<th>Key traits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>0 → 1</strong></td>
+<td>Conventional LLMs, vision encoders, vector DB</td>
+<td>Rapid prototype; cloud‑heavy; short‑term memory</td>
+</tr>
+<tr>
+<td><strong>Sparse HTM kernels</strong></td>
+<td>Columnar memory, temporal pooling</td>
+<td>On‑device inference; continuous learning; event‑driven</td>
+</tr>
+<tr>
+<td><strong>Full neocortical mesh</strong></td>
+<td>Multi‑region predictive hierarchy, sensor‑motor loops</td>
+<td>Low‑power; real‑time world model; cross‑modal reasoning</td>
+</tr>
+</tbody>
+</table>
+<p><em>(Table is illustrative; precise milestones to be refined.)</em></p>
+<hr>
+<h2>Why Keep the Tracks Uncoupled?</h2>
+<ul>
+<li><strong>Parallel progress</strong> – designers iterate on interaction patterns while research teams push the algorithmic frontier.</li>
+<li><strong>Graceful fallback</strong> – immature modules can be swapped with stable ones without user‑visible regressions.</li>
+<li><strong>Clear road‑mapping</strong> – UX capability is measured on one axis; substrate maturity on another.</li>
+</ul>
+<hr>
+<h2>Next Steps</h2>
+<ol>
+<li>Define concrete UX milestone definitions (e.g., &quot;Inbox triage autopilot&quot;, &quot;Multi‑modal memory recall&quot;).</li>
+<li>Map technology phases to silicon requirements (CPU / GPU / ASIC).</li>
+<li>Draft risk register and fallback scenarios for each coupling point.</li>
+<li>Decide data/privacy guardrails for OS‑owned e‑mail/phone endpoints.</li>
+</ol>
+<hr>
 
         </main>
     </div>
