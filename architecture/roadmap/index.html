@@ -52,96 +52,227 @@
         </aside>
         <main class="main-content">
             <h2>Intro</h2>
-<p>This document translates the vision of Lucia OS into a stage‑by‑stage list of user‑facing experience milestones and the backend capabilities that enable them. It shows how the two decoupled tracks of UX and Cognitive Technology Stack evolve from the first prototype to the fully realised cognitive operating system.</p>
-<p>LUCIA OS advances along two parallel, loosely coupled rails:</p>
-<ul>
-<li>UX (frontend) - the human‑facing surface that grows in fluency and initiative.</li>
-<li>Cognitive Technology Stack (backend) – the substrate that implements those abilities, evolving from today’s LLM foundations toward brain‑inspired kernels.</li>
-</ul>
-<p>The separation lets us ship useful features early while re‑architecting the core in the background.</p>
+<p>This document translates the vision of Lucia OS into a stage‑by‑stage list of user‑facing experience milestones and the backend capabilities that enable them. It also tracks the architecture, engineering feasibility, and scalability implications at every step.</p>
+<p>Throughout, we favour well‑known, home‑grown components—SQLite, Postgres, Django, Flask, Rust, C++—before considering bespoke silicon. The brain‑inspired HTM kernels will begin as straightforward Python, progress through native optimisation, and only if necessary graduate to GPUs and, much later, custom chips.</p>
 <hr>
-<h2>Stage 0 - Prototype</h2>
-<p>Establish MVP. Provide early scaffolding for future market fit search, and experementation with UX.</p>
+<h2>Stage 0 – Prototype</h2>
+<p>Establish the minimum viable product; search for product‑market fit; validate conversational UX.</p>
 <h3>UX</h3>
-<p>Conversational shell owns a Telegram username and an email for communication.<br>
-Proactive alerts: &quot;You have new mail from ... with a summary&quot;<br>
-On question‑bearing e‑mails, LUCIA surfaces the questions to the user, captures answers, and auto‑sends a reply to the original sender. Telegram username can proactivly act as an assistant.</p>
-<h3>Backend</h3>
-<p>LLM based with several system propts based on the place in interaction pipeline.</p>
 <ul>
-<li>Owner -&gt; Assistant</li>
-<li>External -&gt; Assistant</li>
+<li>Conversational shell owns a Telegram handle and a dedicated email address.</li>
+<li>Proactive alerts: &quot;You have new mail from …&quot; plus a summary.</li>
+<li>For emails containing questions, Lucia surfaces the questions, captures the user’s answers, and sends replies automatically.</li>
 </ul>
-<p>Storage:</p>
+<h3>Backend</h3>
 <ul>
-<li>List of persistant facts</li>
-<li>List of short-term facts</li>
-<li>Conversation context</li>
-<li>Problem / Question queue to resolve with owner / external</li>
+<li>Single Python process with a few system prompts (Owner -&gt; Assistant, External -&gt; Assistant).</li>
+<li>Storage: SQLite file holding persistent facts, short‑term facts, conversation context, and a problem / question queue.</li>
 </ul>
 <h3>Hardware</h3>
-<p>Minimal hardware requirements. Most of this is hosted on a tiny shared VPS. LLM capability provided by one of the frotier labs: OpenAI, Anthropic, Google etc.</p>
+<ul>
+<li>1 vCPU / 1 GB RAM shared VPS; no GPU.</li>
+<li>External LLM via API (OpenAI, Anthropic, etc.).</li>
+</ul>
+<h3>Architecture</h3>
+<ul>
+<li>Monolithic Flask/Django app. I have experience with Django, but leaning towards Flask because of its simplicity.</li>
+<li>REST calls to external LLM.</li>
+</ul>
+<h3>Engineering feasibility</h3>
+<ul>
+<li>Very high. One engineer; two‑week sprint.</li>
+</ul>
+<h3>Scalability &amp; resource demands</h3>
+<ul>
+<li>Tens of concurrent chats; &lt; 1 GB storage; API costs $20–50 mo.</li>
+<li><a href="http://Fly.io">Fly.io</a> is a good option for hosting.</li>
+</ul>
 <hr>
-<h2>Stage 0.5 - Extended prototype</h2>
-<p>This stage is focusted on UX and fixing what we've learned while establishing a backend.</p>
+<h2>Stage 0.5 – Extended Prototype</h2>
+<p>Harden the service, refine message timing and classification, begin cost analysis.</p>
 <h3>UX</h3>
 <ul>
-<li>Work on timing of messages</li>
-<li>Work on classification of messaging. What is important? What is relevant? What is urgent? What is part of long-term persistant memory, short-term memory, immidiate context?</li>
+<li>Tune timing of communication. When do we ask the user? Can we ask a user when/how often we want assistant to interact with the owner?</li>
+<li>First‑pass message classification for importance/urgency/context.</li>
 </ul>
 <h3>Backend</h3>
 <ul>
-<li>Try multiple models</li>
-<li>Try multipl VPS providers</li>
-<li>Do cost/capability analysis.</li>
-<li>Make a model to predict scaling / growth problems</li>
-<li>Maybe explore local models?</li>
+<li>Swap SQLite for Postgres while keeping the schema identical. Also evaluate is this needed at all? How are managing context, shor/long term memory?</li>
+<li>Figure out background jobs. In-house vs Celery?</li>
+<li>Run A/B tests on multiple hosted LLMs; collect latency / cost metrics.</li>
+</ul>
+<h3>Hardware</h3>
+<ul>
+<li>2 vCPU / 4 GB RAM VPS; Postgres on the same box.</li>
+</ul>
+<h3>Architecture</h3>
+<ul>
+<li>Modular Django/Flask project: web, worker, scheduler.</li>
+<li>Keep building on <a href="http://Fly.io">Fly.io</a>. Or look at other options if requirements change.</li>
+</ul>
+<h3>Engineering feasibility</h3>
+<ul>
+<li>High; mainstream tooling.</li>
+</ul>
+<h3>Scalability &amp; resource demands</h3>
+<ul>
+<li>Hundreds of users; 20 GB Postgres; API spend trimmed via caching.</li>
 </ul>
 <hr>
-<h2>Stage 1 · Context‑Aware Assistant</h2>
+<h2>Stage 1 – Context‑Aware Assistant</h2>
 <h3>UX</h3>
-<p>Persistent memory—remembers preferences and past conversations<br>
-Browsing &amp; downloads are auto‑embedded into the local knowledge graph; user asks &quot;What did I read about HTM yesterday?&quot;<br>
-Multi‑channel notifications (desktop, mobile, wearables) |</p>
+<ul>
+<li>Persistent memory of preferences and past conversations.</li>
+<li>Automatic embedding of browsing history and downloads; user query: &quot;What did I read about ... yesterday?&quot;</li>
+<li>Multi‑channel notifications (desktop, mobile, wearables).</li>
+</ul>
 <h3>Backend</h3>
-<p>Local vector store w/ incremental embedding<br>
-Retrieval‑augmented answering (RAG) over personal corpus<br>
-Event bus ingesting web pages, files, IoT signals; lightweight privacy sandbox</p>
+<ul>
+<li>Local vector store (PgVector inside Postgres) with incremental embeddings.</li>
+<li>Retrieval‑augmented generation (RAG) over personal corpus.</li>
+<li>Event bus (Django Channels / RabbitMQ) to ingest web pages, files, and IoT signals. This is very ambigous right now. Need more research.</li>
+</ul>
+<h3>Hardware</h3>
+<ul>
+<li>4 vCPU / 8 GB RAM VPS with SSD.</li>
+<li>Optional burst GPU instance for large embedding batches.</li>
+</ul>
+<h3>Architecture</h3>
+<ul>
+<li>Django + pgvector; FastAPI microservice for RAG.</li>
+<li>There is probalby a lot of tech debt at this point. Architecture is not clear until we start reaching this stage.</li>
+</ul>
+<h3>Engineering feasibility</h3>
+<ul>
+<li>Medium‑high; open‑source parts, careful data modelling.</li>
+</ul>
+<h3>Scalability &amp; resource demands</h3>
+<ul>
+<li>Thousands of docs; 100 GB NVMe; occasional GPU. Probably at around $100+ mo.</li>
+</ul>
 <hr>
-<h2>Stage 2 · Multimodal Companion</h2>
+<h2>Stage 2 – Multimodal Companion</h2>
 <h3>UX</h3>
-<p>Vision &amp; audio understanding: screenshots, camera, mic<br>
-Contextual UI overlays—suggest actions in‑flow (&quot;Clip this chart?&quot;), no apps<br>
-Timeline views of integrated memory across modalities                            |</p>
+<ul>
+<li>Vision and audio understanding from screenshots, camera, microphone.</li>
+<li>Contextual UI overlays (“Clip this chart?”) inside OS / browser.</li>
+<li>Timeline views that merge text, image, and audio history.</li>
+</ul>
 <h3>Backend</h3>
-<p>Sensing kernels (vision, audio, touch)<br>
-On‑device GPUs / NPUs for local inference<br>
-Sparse HTM‑inspired learning kernels for continuous adaptation<br>
-Motor kernels begin guiding attention &amp; orchestrating tasks</p>
+<ul>
+<li>Sensing kernels (vision, audio) using off‑the‑shelf models (e.g., Whisper, CLIP).</li>
+<li>HTM kernels remain Python prototypes; profiler identifies hotspots.</li>
+<li>Begin porting compute‑heavy loops to Rust for 5–10× speed‑up.</li>
+</ul>
+<h3>Hardware</h3>
+<ul>
+<li>User devices leverage built‑in NPUs (Apple silicon, possibly other ARM based devices); backend GPU only for model fine‑tune.</li>
+</ul>
+<h3>Architecture</h3>
+<ul>
+<li>gRPC microservices: vision‑worker, audio‑worker, RAG‑core.</li>
+<li>C++ modules compiled to shared libraries, called from Python.</li>
+<li>Do we need our own browser? Where do our users live at this point in time?</li>
+</ul>
+<h3>Engineering feasibility</h3>
+<ul>
+<li>Medium; multimodal glue code plus C++ FFI.</li>
+</ul>
+<h3>Scalability &amp; resource demands</h3>
+<ul>
+<li>Each edge device handles inference; backend aggregates embeddings.</li>
+<li>Central: 8 vCPU / 32 GB RAM; small GPU pool?</li>
+</ul>
 <hr>
-<h2>Stage 3 · Cognitive Partner</h2>
+<h2>Stage 3 – Cognitive Partner</h2>
 <h3>UX</h3>
-<p>Real‑time collaboration: anticipates needs, offers plans, runs multi‑step workflows autonomously<br>
-Embodied across devices; seamless hand‑off<br>
-Rich mixed‑reality expressions (gesture, spatial audio)<br>
-First implementation of apps as learned skill</p>
+<ul>
+<li>Real‑time collaboration: anticipates needs, proposes plans, and can execute multi‑step workflows.</li>
+<li>Seamless hand‑off across devices.</li>
+<li>Mixed‑reality expressions using gesture and spatial audio.</li>
+</ul>
 <h3>Backend</h3>
-<p>Predictive hierarchical mesh of kernels across modalities<br>
-World model with temporal pooling &amp; sensor‑motor loops<br>
-Low‑power neuromorphic co‑processors<br>
-Federated learning for privacy‑preserving personalisation |</p>
+<ul>
+<li>Hierarchical kernel mesh initialised in C++; SIMD and multithreading exploited.</li>
+<li>Profiling reveals remaining bottlenecks; port hottest code paths to CUDA / Metal.</li>
+<li>Automated benchmarking pipeline compares CPU vs GPU throughput and power.</li>
+</ul>
+<h3>Hardware</h3>
+<ul>
+<li>Personal laptop/desktop GPU (RTX 40‑series or Apple M‑series) becomes primary accelerator.</li>
+<li>No custom silicon yet.</li>
+</ul>
+<h3>Architecture</h3>
+<ul>
+<li>Kernel mesh as C++ exposing gRPC; GPUs addressed via CUDA / Metal back‑ends.</li>
+<li>Graph database stores dynamic world model / kernel weights..</li>
+</ul>
+<h3>Engineering feasibility</h3>
+<ul>
+<li>Medium‑low; cross‑platform GPU back‑end, but no hardware changes.</li>
+</ul>
+<h3>Scalability &amp; resource demands</h3>
+<ul>
+<li>GPU VRAM scaling becomes limiting factor (24 GB per active user workspace).</li>
+<li>Weekly infra cost around $0.50 per active heavy user on Spot GPUs.</li>
+</ul>
 <hr>
-<h2>Stage 4 · Ultimate Cognitive OS</h2>
+<h2>Stage 4 – Ultimate Cognitive OS</h2>
 <h3>UX</h3>
-<p>Symbiotic companion—understands life narrative, goals, emotions<br>
-Generates and executes long‑horizon plans; negotiates with external agents<br>
-Zero‑interface ambient mode; system intervenes only when valuable<br>
-Learn from user. Learn from external sources. App store of skills?</p>
+<ul>
+<li>Symbiotic companion understands long‑term goals, values, and emotions.</li>
+<li>Generates long‑horizon plans; negotiates with external agents.</li>
+<li>Ambient, zero‑interface mode.</li>
+</ul>
 <h3>Backend</h3>
-<p>Distributed kernel swarm—runs on heterogeneous edge devices<br>
-Self‑optimising resource allocation; energy proportional<br>
-Secure enclave for personal memory; cryptographic provenance of actions<br>
-Social graph of kernel‑to‑kernel communication for group cognition</p>
+<ul>
+<li>Distributed swarm of HTM kernels across the user’s devices.</li>
+<li>Dynamic workload placement based on power, latency, and privacy.</li>
+<li>Continuous learning with differential privacy.</li>
+</ul>
+<h3>Hardware</h3>
+<ul>
+<li>Conventional CPUs/GPUs in phones, laptops, and home servers.</li>
+<li>We actively log performance counters to understand energy and latency ceilings.</li>
+</ul>
+<h3>Architecture</h3>
+<ul>
+<li>Peer‑to‑peer mesh for kernel coordination. No single point of failure.</li>
+<li>Encrypted personal vault (age + SQLite) replicated across devices.</li>
+</ul>
+<h3>Engineering feasibility</h3>
+<ul>
+<li>Challenging but feasible without new silicon; depends on efficient GPU kernels.</li>
+</ul>
+<h3>Scalability &amp; resource demands</h3>
+<ul>
+<li>Millions of micro‑kernels per user; requires smart scheduling.</li>
+</ul>
+<hr>
+<h2>Post‑Stage 4 – Custom Hardware Exploration</h2>
+<p>Triggered only if profiling data from Stage 3 and Stage 4 shows that commodity GPUs cannot meet latency and watt targets.</p>
+<h3>Goals</h3>
+<ul>
+<li>Evaluate ASIC / neuromorphic prototypes for HTM workloads.</li>
+<li>Define instruction‑level requirements from real trace logs.</li>
+<li>Build FPGA proof‑of‑concept, then iterate toward an SoC.</li>
+</ul>
+<h3>Steps</h3>
+<ol>
+<li>Collect trace data during high‑load tasks; identify kernel primitives (spatial pooler, temporal memory, etc.).</li>
+<li>Prototype on modern FPGA board.</li>
+<li>Compare throughput and energy vs high‑end GPU.</li>
+<li>If 10× better, kick‑off SoC tape‑out feasibility study.</li>
+</ol>
+<h3>Engineering feasibility</h3>
+<ul>
+<li>Experimental; requires hardware design expertise and 12–18 months R&amp;D.</li>
+</ul>
+<h3>Scalability &amp; resource demands</h3>
+<ul>
+<li>Initial FPGA boards ($2–3 k each) for the dev team.</li>
+<li>ASIC NRE only if ROI is clear</li>
+</ul>
 
         </main>
     </div>
