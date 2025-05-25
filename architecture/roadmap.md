@@ -59,7 +59,11 @@ This stage is focusted on UX and fixing what we've learned while establishing a 
 * Try multipl VPS providers
 * Do cost/capability analysis. 
 * Make a model to predict scaling / growth problems
-* Maybe explore local models?
+* Explore local models?
+* Explore scheduled finetune, adapters?
+
+### Hardware
+Same small VPS. Same external LLM's. Try local models, local services. Figure out VPS -> local connection. How does that affect uptime? How do heteregeniues systems affect stability?
 
 ---
 
