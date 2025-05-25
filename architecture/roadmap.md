@@ -7,64 +7,117 @@ eleventyNavigation:
   order: 1
 eleventyExcludeFromCollections: false
 ---
+## Intro
 
-# Roadmap
-
-# LUCIA OS – Two‑Track Roadmap
-
-**Draft v0.1 – 21 May 2025**
-
----
-
-### Concept
+This document translates the vision of Lucia OS into a stage‑by‑stage list of user‑facing experience milestones and the backend capabilities that enable them. It shows how the two decoupled tracks of UX and Cognitive Technology Stack evolve from the first prototype to the fully realised cognitive operating system.
 
 LUCIA OS advances along two parallel, loosely coupled rails:
 
-1. **User Experience (UX)** – the human‑facing surface that grows in fluency and initiative.
-2. **Cognitive Technology Stack** – the substrate that implements those abilities, evolving from today’s LLM foundations toward brain‑inspired kernels.
+* UX (frontend) - the human‑facing surface that grows in fluency and initiative.
+* Cognitive Technology Stack (backend) – the substrate that implements those abilities, evolving from today’s LLM foundations toward brain‑inspired kernels.
 
 The separation lets us ship useful features early while re‑architecting the core in the background.
 
 ---
 
-## Layer 1 — Proactive User Experience (UX)
+## Stage 0 - Prototype
 
-* **Rising capability curve**: picture a diagonal line that climbs as the interface learns to understand, remember, and reason across modalities.
-* **Proactivity from day one**:
+Establish MVP. Provide early scaffolding for future market fit search, and experementation with UX.
 
-  * The OS owns its own **e‑mail address and phone number**.
-  * It can **receive messages from external senders** (friends, services, IoT devices) and ingest them as first‑class events.
-  * It **initiates conversations** with the user: summarising incoming information, asking clarifying questions, proposing actions.
-* **Early implementation**: off‑the‑shelf LLMs wrapped in a conversational shell handle language parsing, intent extraction, and basic summarisation.
-* **Progression**: memory becomes persistent, dialogue spans contexts, and the agent starts chaining reasoning loops (planning, simulation, delegation). The UI remains stable; only the depth behind interactions changes.
+### UX
+Conversational shell owns a Telegram username and an email for communication. 
+Proactive alerts: "You have new mail from ... with a summary" 
+On question‑bearing e‑mails, LUCIA surfaces the questions to the user, captures answers, and auto‑sends a reply to the original sender. Telegram username can proactivly act as an assistant.
 
----
+### Backend
 
-## Layer 2 — Cognitive Technology Stack
+LLM based with several system propts based on the place in interaction pipeline. 
+* Owner -> Assistant
+* External -> Assistant
 
-| Phase                     | Underlying modules                                    | Key traits                                              |
-| ------------------------- | ----------------------------------------------------- | ------------------------------------------------------- |
-| **0 → 1**                 | Conventional LLMs, vision encoders, vector DB         | Rapid prototype; cloud‑heavy; short‑term memory         |
-| **Sparse HTM kernels**    | Columnar memory, temporal pooling                     | On‑device inference; continuous learning; event‑driven  |
-| **Full neocortical mesh** | Multi‑region predictive hierarchy, sensor‑motor loops | Low‑power; real‑time world model; cross‑modal reasoning |
+Storage:
+* List of persistant facts
+* List of short-term facts
+* Conversation context
+* Problem / Question queue to resolve with owner / external
 
-*(Table is illustrative; precise milestones to be refined.)*
-
----
-
-## Why Keep the Tracks Uncoupled?
-
-* **Parallel progress** – designers iterate on interaction patterns while research teams push the algorithmic frontier.
-* **Graceful fallback** – immature modules can be swapped with stable ones without user‑visible regressions.
-* **Clear road‑mapping** – UX capability is measured on one axis; substrate maturity on another.
+### Hardware
+Minimal hardware requirements. Most of this is hosted on a tiny shared VPS. LLM capability provided by one of the frotier labs: OpenAI, Anthropic, Google etc.
 
 ---
 
-## Next Steps 
+## Stage 0.5 - Extended prototype
 
-1. Define concrete UX milestone definitions (e.g., "Inbox triage autopilot", "Multi‑modal memory recall").
-2. Map technology phases to silicon requirements (CPU / GPU / ASIC).
-3. Draft risk register and fallback scenarios for each coupling point.
-4. Decide data/privacy guardrails for OS‑owned e‑mail/phone endpoints.
+This stage is focusted on UX and fixing what we've learned while establishing a backend.
+
+### UX
+* Work on timing of messages
+* Work on classification of messaging. What is important? What is relevant? What is urgent? What is part of long-term persistant memory, short-term memory, immidiate context?
+
+### Backend
+* Try multiple models
+* Try multipl VPS providers
+* Do cost/capability analysis. 
+* Make a model to predict scaling / growth problems
+* Maybe explore local models?
 
 ---
+
+## Stage 1 · Context‑Aware Assistant
+
+### UX
+Persistent memory—remembers preferences and past conversations
+Browsing & downloads are auto‑embedded into the local knowledge graph; user asks "What did I read about HTM yesterday?"
+Multi‑channel notifications (desktop, mobile, wearables) |
+
+### Backend
+Local vector store w/ incremental embedding
+Retrieval‑augmented answering (RAG) over personal corpus
+Event bus ingesting web pages, files, IoT signals; lightweight privacy sandbox                                                               
+
+---
+
+## Stage 2 · Multimodal Companion
+### UX
+Vision & audio understanding: screenshots, camera, mic
+Contextual UI overlays—suggest actions in‑flow ("Clip this chart?"), no apps
+Timeline views of integrated memory across modalities                            |
+
+### Backend
+Sensing kernels (vision, audio, touch)
+On‑device GPUs / NPUs for local inference
+Sparse HTM‑inspired learning kernels for continuous adaptation
+Motor kernels begin guiding attention & orchestrating tasks 
+
+---
+
+## Stage 3 · Cognitive Partner
+
+### UX
+
+Real‑time collaboration: anticipates needs, offers plans, runs multi‑step workflows autonomously
+Embodied across devices; seamless hand‑off
+Rich mixed‑reality expressions (gesture, spatial audio) 
+First implementation of apps as learned skill
+
+### Backend
+Predictive hierarchical mesh of kernels across modalities
+World model with temporal pooling & sensor‑motor loops
+Low‑power neuromorphic co‑processors
+Federated learning for privacy‑preserving personalisation |
+
+---
+
+## Stage 4 · Ultimate Cognitive OS
+
+### UX
+Symbiotic companion—understands life narrative, goals, emotions
+Generates and executes long‑horizon plans; negotiates with external agents
+Zero‑interface ambient mode; system intervenes only when valuable
+Learn from user. Learn from external sources. App store of skills?
+
+### Backend
+Distributed kernel swarm—runs on heterogeneous edge devices
+Self‑optimising resource allocation; energy proportional
+Secure enclave for personal memory; cryptographic provenance of actions
+Social graph of kernel‑to‑kernel communication for group cognition
