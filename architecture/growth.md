@@ -10,72 +10,86 @@ eleventyExcludeFromCollections: false
 
 # Growth
 
-This document translates the vision at [luciaos.com](https://luciaos.com) into a stage‑by‑stage list of (A) user‑facing experience milestones and (B) the backend capabilities that enable them. It shows how the two decoupled tracks—**UX** and **Cognitive Technology Stack**—evolve in concert from the very first prototype to the fully realised cognitive operating system.
+This document translates the vision of Lucia OS into a stage‑by‑stage list of user‑facing experience milestones and the backend capabilities that enable them. It shows how the two decoupled tracks of UX and Cognitive Technology Stack evolve in concert from the very first prototype to the fully realised cognitive operating system.
 
 ---
 
-## Stage 0 · Prototype (Today)
+## Stage 0 - Prototype
 
-| Track       | Capability                                                                                                                                                                                                                                                                                                               |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **UX**      | • Conversational shell (text/voice)<br>• OS owns an **e-mail address & phone number** for inbound messages<br>• Proactive alerts: "You have new mail from …—want a summary?"<br>• On question‑bearing e‑mails, LUCIA surfaces the questions to the user, captures answers, and auto‑sends a reply to the original sender |
-| **Backend** | • Cloud LLM (GPT‑class) for language<br>• Basic ingestion pipeline: e‑mail, SMS/IM -> embeddings -> vector DB<br>• Cloud storage; short‑term memory only                                                                                                                                                                 |
+### UX
+Conversational shell (text/voice/email) owns a Telegram username and email for inbound messages. 
+Proactive alerts: "You have new mail from ... with a summary" 
+On question‑bearing e‑mails, LUCIA surfaces the questions to the user, captures answers, and auto‑sends a reply to the original sender. Telegram username can proactivly act as an assistant.
 
+### Backend
+
+LLM based with several system propts based on the place in interaction pipeline. 
+* Owner -> Assistant
+* External -> Assistant
+
+Storage:
+* List of persistant facts
+* List of short-term facts
+* Conversation context
+* Problem / Question queue to resolve with owner / external
+                                                           
 ---
 
 ## Stage 1 · Context‑Aware Assistant
 
-| Track       | Capability                                                                                                                                                                                                                                                      |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **UX**      | • Persistent memory—remembers preferences and past conversations<br>• Browsing & downloads are **auto‑embedded** into the local knowledge graph; user asks "What did I read about HTM yesterday?"<br>• Multi‑channel notifications (desktop, mobile, wearables) |
-| **Backend** | • Local vector store w/ incremental embedding<br>• Retrieval‑augmented answering (RAG) over personal corpus<br>• Event bus ingesting web pages, files, IoT signals; lightweight privacy sandbox                                                                 |
+### UX
+Persistent memory—remembers preferences and past conversations
+Browsing & downloads are auto‑embedded into the local knowledge graph; user asks "What did I read about HTM yesterday?"
+Multi‑channel notifications (desktop, mobile, wearables) |
+
+### Backend
+Local vector store w/ incremental embedding
+Retrieval‑augmented answering (RAG) over personal corpus
+Event bus ingesting web pages, files, IoT signals; lightweight privacy sandbox                                                               
 
 ---
 
 ## Stage 2 · Multimodal Companion
+### UX
+Vision & audio understanding: screenshots, camera, mic
+Contextual UI overlays—suggest actions in‑flow ("Clip this chart?"), no apps
+Timeline views of integrated memory across modalities                            |
 
-| Track       | Capability                                                                                                                                                                                                                       |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **UX**      | • Vision & audio understanding: screenshots, camera, mic<br>• Contextual UI overlays—suggest actions in‑flow ("Clip this chart?"), no apps<br>• Timeline views of integrated memory across modalities                            |
-| **Backend** | • Sensing kernels (vision, audio, touch)<br>• On‑device GPUs / NPUs for local inference<br>• Sparse **HTM‑inspired learning kernels** for continuous adaptation<br>• Motor kernels begin guiding attention & orchestrating tasks |
+### Backend
+Sensing kernels (vision, audio, touch)
+On‑device GPUs / NPUs for local inference
+Sparse HTM‑inspired learning kernels for continuous adaptation
+Motor kernels begin guiding attention & orchestrating tasks 
 
 ---
 
 ## Stage 3 · Cognitive Partner
 
-| Track       | Capability                                                                                                                                                                                                                           |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **UX**      | • Real‑time collaboration: anticipates needs, offers plans, runs multi‑step workflows autonomously<br>• Embodied across devices; seamless hand‑off<br>• Rich mixed‑reality expressions (gesture, spatial audio)                      |
-| **Backend** | • **Predictive hierarchical mesh** of kernels across modalities<br>• World model with temporal pooling & sensor‑motor loops<br>• Low‑power neuromorphic co‑processors<br>• Federated learning for privacy‑preserving personalisation |
+### UX
+
+Real‑time collaboration: anticipates needs, offers plans, runs multi‑step workflows autonomously
+Embodied across devices; seamless hand‑off
+Rich mixed‑reality expressions (gesture, spatial audio) 
+First implementation of apps as learned skill
+
+### Backend
+Predictive hierarchical mesh of kernels across modalities
+World model with temporal pooling & sensor‑motor loops
+Low‑power neuromorphic co‑processors
+Federated learning for privacy‑preserving personalisation |
 
 ---
 
 ## Stage 4 · Ultimate Cognitive OS
 
-| Track       | Capability                                                                                                                                                                                                                                                                       |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **UX**      | • Symbiotic companion—understands life narrative, goals, emotions<br>• Generates and executes long‑horizon plans; negotiates with external agents<br>• Zero‑interface ambient mode; system intervenes only when valuable                                                         |
-| **Backend** | • Distributed kernel swarm—runs on heterogeneous edge devices<br>• Self‑optimising resource allocation; energy proportional<br>• Secure enclave for personal memory; cryptographic provenance of actions<br>• Social graph of kernel‑to‑kernel communication for group cognition |
+### UX
+Symbiotic companion—understands life narrative, goals, emotions
+Generates and executes long‑horizon plans; negotiates with external agents
+Zero‑interface ambient mode; system intervenes only when valuable
+Learn from user. Learn from external sources. App store of skills?
 
----
-
-## Milestone Quick‑Look
-
-1. **Prototype** → ship usable agent using existing cloud LLMs.
-2. **Context‑Aware** → embed everything the user touches; build persistent vector memory.
-3. **Multimodal** → add sensors + local HTM kernels for online learning.
-4. **Cognitive Partner** → predictive world model + neuromorphic hardware.
-5. **Ultimate OS** → distributed, privacy‑preserving, life‑scale cognition.
-
----
-
-### Open Questions
-
-* Hardware reference platform beyond Raspberry Pi?
-* Data residency & GDPR‑class compliance for personal memory.
-* Economic model: subscription vs. hardware bundle?
-* Developer story: exposing kernel APIs while avoiding legacy app mindset.
-
----
-
-*End of draft.*
+### Backend
+Distributed kernel swarm—runs on heterogeneous edge devices
+Self‑optimising resource allocation; energy proportional
+Secure enclave for personal memory; cryptographic provenance of actions
+Social graph of kernel‑to‑kernel communication for group cognition
