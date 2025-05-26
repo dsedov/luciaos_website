@@ -110,7 +110,7 @@ Harden the service, refine message timing and classification, begin cost analysi
 
 ### Architecture
 
-* Django + pgvector; FastAPI microservice for RAG.
+* Django + pgvector + RAG.
 * There is probalby a lot of tech debt at this point. Architecture is not clear until we start reaching this stage.
 
 ### Engineering feasibility
