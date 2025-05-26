@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="layout">
+        <header class="mobile-header">
+            <a href="/" class="nav-brand">LUCIA OS</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
+        </header>
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="/" class="nav-brand">LUCIA OS</a>
+            </div>
+            <nav class="sidebar-nav">
+                <ul class="nav-links"><li>
+                                    <a href="/" >
+                                        Home
+                                    </a></li><li>
+                                    <a href="/architecture/" >
+                                        Architecture
+                                    </a><ul class="sub-nav"><li>
+                                                        <a href="/architecture/privacy/" aria-current="page">
+                                                            Privacy
+                                                        </a>
+                                                    </li><li>
+                                                        <a href="/architecture/roadmap/" >
+                                                            Roadmap
+                                                        </a>
+                                                    </li></ul></li></ul>
+            </nav>
+            <button class="theme-toggle" aria-label="Toggle theme">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
+        </aside>
+        <main class="main-content">
+            <h1>Privacy &amp; Access‑Control Framework for LUCIA Personal Assistant (Draft)</h1>
+<h2>1. Purpose</h2>
+<p>Provide a clear, staged privacy model that governs who can see what when interacting with the owner‑centric assistant during early development (Stage 0/1) and beyond.</p>
+<hr>
+<h2>2. Data Taxonomy</h2>
+<ul>
+<li>Short‑Term (Ephemeral): Volatile data scoped to a single turn—recent user utterance, transient tool results.</li>
+<li>Conversation Context: Rolling window for the active thread that blends short‑term memory with a running summary.</li>
+<li>Fact Sheet (Public): Curated, owner‑approved facts deemed safe for disclosure such as job title and general interests.</li>
+<li>Long‑Term Memory (Private): Persisted personal data and project archives—health notes, detailed roadmaps, etc.  Sharded by sensitivity and protected with separate keys.</li>
+<li>Tool &amp; System Logs: Internal telemetry and execution traces, useful for debugging and audit.</li>
+</ul>
+<hr>
+<h2>3. Access Levels &amp; Trust Tiers</h2>
+<ul>
+<li>Level 0 — Owner (Dennis): Full read/write access to every tier.</li>
+<li>Level 1 — Trusted Collaborator: Reads the Fact Sheet and any private shards the owner explicitly whitelists.</li>
+<li>Level 2 — Known Contact: Reads the Fact Sheet only.</li>
+<li>Level 3 — Unknown / First‑Time: Receives a minimal public greeting card.</li>
+</ul>
+<p>Exceptions can be attached to any user or thread, selectively adding or removing individual facts regardless of tier.</p>
+<hr>
+<h2>4. Message Flow &amp; Context Construction</h2>
+<h3>4.1 Owner ➜ Assistant</h3>
+<ul>
+<li>Context supplied: the full stack (short‑term, conversation context, Fact Sheet, long‑term memory, and relevant tool logs).</li>
+<li>Typical tasks: brainstorming, personal reminders, high‑sensitivity queries.</li>
+</ul>
+<h3>4.2 Assistant ➜ Owner</h3>
+<ol>
+<li>Internal reflections stay invisible unless the owner explicitly requests them.</li>
+<li>Operational replies deliver answers, suggestions, and tool outcomes.</li>
+<li>Conversation digests summarize external chats and label them with the external party’s trust tier.</li>
+</ol>
+<h3>4.3 External User ➜ Assistant</h3>
+<ul>
+<li>Initial context: Fact Sheet only.</li>
+<li>Escalation path: the assistant pauses, asks the owner for guidance, receives explicit approval before expanding context.</li>
+<li>Guard‑rails: deny‑list checks, rate limits, and a prompt‑injection filter on every turn.</li>
+</ul>
+<hr>
+<h2>5. External LLM Usage (Stage 0/1)</h2>
+<ul>
+<li>Each outbound call includes: (a) the user message, (b) only the context slices allowed by the trust tier, and (c) a role‑specific system prompt.</li>
+<li>The context builder enforces least‑privilege by design, never bundling more data than necessary.</li>
+<li>All payloads are encrypted in transit, logged, and stored for later audit while respecting shard boundaries.</li>
+</ul>
+<hr>
+<h2>6. Governance &amp; Security Controls</h2>
+<ul>
+<li>End‑to‑end encryption both at rest and in transit for every memory shard.</li>
+<li>An append‑only audit trail hashed in a Merkle tree to detect tampering.</li>
+<li>A consent ledger that records who has been granted which exceptions and when they expire.</li>
+<li>A right‑to‑be‑forgotten workflow that cascades deletions across memory shards and tool logs.</li>
+<li>Regular key rotation; keys for high‑sensitivity shards live in a separate hardware module.</li>
+</ul>
+<hr>
+<h2>7. Problems &amp; Open Questions</h2>
+<ul>
+<li>Context Leakage: How to ensure sensitive embeddings cannot be reconstructed from model outputs?</li>
+<li>Prompt Injection: What additional sandboxing is needed to contain sophisticated attacks by external users?</li>
+<li>Cross‑Thread Correlation: How to prevent a persistent external user from assembling private data across multiple sessions?</li>
+<li>Model Contamination: Which contractual and technical measures guarantee that third‑party LLM providers do not train on our payloads?</li>
+<li>Granular Revocation: How to retract access mid‑conversation when trust assumptions change?</li>
+<li>Regulatory Compliance: How do the memory shards map to GDPR/CCPA categories, and what is the data‑subject request flow?</li>
+<li>Key Management: Who holds which keys, and how frequently should they rotate?</li>
+<li>Latency vs. Privacy: What is an acceptable performance hit for heavy encryption and context building?</li>
+</ul>
+<hr>
+<h2>8. Next Steps</h2>
+<ul>
+<li>Define concrete data schemas and encryption policies for each memory tier.</li>
+<li>Prototype the context‑builder that enforces the trust matrix.</li>
+<li>Draft a consent UI for granting and revoking exceptions.</li>
+<li>Run red‑team exercises that target prompt injection and context‑leak pathways.</li>
+<li>Revisit the framework after Stage 2 when the project migrates to in‑house model hosting.</li>
+</ul>
+
+        </main>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+
+        // Theme toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const html = document.documentElement;
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            html.setAttribute('data-theme', savedTheme);
+            themeToggle.setAttribute('data-theme', savedTheme);
+        }
+
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            themeToggle.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+</body>
+</html> 
