@@ -1,6 +1,6 @@
 ---
 layout: base.njk
-title: Hardware
+title: Roadmap
 eleventyNavigation:
   key: Roadmap
   parent: Architecture
