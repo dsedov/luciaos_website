@@ -6,10 +6,6 @@ eleventyNavigation:
   order: 2
 ---
 
-Below is a structured but table-free brain-dump you can mine, mix, and remix. Feel free to slice away anything that doesn’t suit your product vision.
-
----
-
 ## 1. Three Core Archetypes
 
 ### 1.1 The Technical Geeky “Power Tinkerer”
