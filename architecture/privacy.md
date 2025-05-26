@@ -28,7 +28,7 @@ Provide a clear, staged privacy model that governs who can see what when interac
 
 ## 3. Access Levels & Trust Tiers
 
-* Level 0 — Owner (Dennis): Full read/write access to every tier.
+* Level 0 — Owner: Full read/write access to every tier.
 * Level 1 — Trusted Collaborator: Reads the Fact Sheet and any private shards the owner explicitly whitelists.
 * Level 2 — Known Contact: Reads the Fact Sheet only.
 * Level 3 — Unknown / First‑Time: Receives a minimal public greeting card.
