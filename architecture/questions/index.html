@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="layout">
+        <header class="mobile-header">
+            <a href="/" class="nav-brand">LUCIA OS</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
+        </header>
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="/" class="nav-brand">LUCIA OS</a>
+            </div>
+            <nav class="sidebar-nav">
+                <ul class="nav-links"><li>
+                                    <a href="/" >
+                                        Home
+                                    </a></li><li>
+                                    <a href="/architecture/" >
+                                        Architecture
+                                    </a><ul class="sub-nav"><li>
+                                                        <a href="/architecture/privacy/" >
+                                                            Privacy
+                                                        </a>
+                                                    </li><li>
+                                                        <a href="/architecture/questions/" aria-current="page">
+                                                            Questions
+                                                        </a>
+                                                    </li><li>
+                                                        <a href="/architecture/roadmap/" >
+                                                            Roadmap
+                                                        </a>
+                                                    </li></ul></li></ul>
+            </nav>
+            <button class="theme-toggle" aria-label="Toggle theme">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
+        </aside>
+        <main class="main-content">
+            <h3>High-leverage questions to pressure-test the roadmap</h3>
+<h4>Vision &amp; product-market fit</h4>
+<ol>
+<li>What specific pain points will each stage solve for early adopters, and how will we measure that we solved them?</li>
+<li>Which user segments (e.g. power emailers, solo founders, creatives) give the strongest pull today—and how might they change by Stage 2 or 3?</li>
+<li>How will we capture feedback loops fast enough to steer UX before we invest in heavier back-end refactors?</li>
+</ol>
+<h4>UX &amp; interaction design</h4>
+<ol start="4">
+<li>What “weird” failure cases in the conversational shell could erode trust (mis-summaries, timing mishaps, false urgency)?</li>
+<li>How can users override, mute, or audit proactive actions at every stage?</li>
+<li>What minimum visual tooling (dashboards, logs) is required once we add contextual overlays and multimodal data?</li>
+<li>Where does the assistant need a physical presence (menu bar, mobile widget) versus being purely chat-based?</li>
+</ol>
+<h4>Data &amp; privacy</h4>
+<ol start="8">
+<li>What is the <em>least</em> amount of personal data we can ingest at Stage 0.5 while still providing value?</li>
+<li>How will we let users inspect, edit, or delete embeddings and long-term memories?</li>
+<li>At what stage do we need end-to-end encryption of personal vaults, and what threat models are we protecting against?</li>
+</ol>
+<h4>Architecture choices</h4>
+<ol start="11">
+<li>Flask vs Django: What plugins or admin capabilities might we miss if we stay on Flask past Stage 1?</li>
+<li>Can one Postgres instance stay authoritative for both transactional data and pgvector, or do we need a read replica strategy by Stage 2?</li>
+<li>Where do we draw the boundary between Python orchestration and Rust/C++ kernels—file-level, class-level, or ABI boundary?</li>
+<li>How will we version and migrate memory schemas without breaking older kernels or embeddings?</li>
+</ol>
+<h4>Cost &amp; scalability</h4>
+<ol start="15">
+<li>What unit-economics metric (e.g. <em>cost per proactive message</em>, <em>cost per thousand tokens retrieved</em>) will alert us when to optimise or switch providers?</li>
+<li>How do API pricing changes from OpenAI/Anthropic affect Stage 0.5 versus Stage 3 economics?</li>
+<li>What’s the ceiling of <a href="http://Fly.io">Fly.io</a> for GPU bursting, and when should we move inference to a dedicated cloud?</li>
+</ol>
+<h4>Performance &amp; hardware path</h4>
+<ol start="18">
+<li>Which kernels are most likely to hit CPU bottlenecks first: spatial pooling, temporal memory, or vector search?</li>
+<li>What profiling tools will we standardise on (Py-Spy, perf, nvprof) to decide when to rewrite in Rust or target CUDA/Metal?</li>
+<li>How will we benchmark “acceptable latency” for on-device NPU inference across iPhone, Mac, and generic ARM laptops?</li>
+<li>What power-budget targets must a future ASIC beat to justify tape-out (e.g. &lt; 50 mW for continual learning on mobile)?</li>
+</ol>
+<h4>Reliability &amp; ops</h4>
+<ol start="22">
+<li>What is the minimum observability stack (logs, traces, metrics) we need by Stage 1 to debug proactive actions gone wrong?</li>
+<li>How will we replay user interactions safely in staging to diagnose bugs without leaking private content?</li>
+<li>What is our disaster-recovery story once the personal vault spans multiple devices—who is the final source of truth?</li>
+</ol>
+<h4>Security &amp; compliance</h4>
+<ol start="25">
+<li>At what point do we need SOC 2 / GDPR compliance, and what groundwork can we lay in Stage 0?</li>
+<li>How will we authenticate external agents (other LLMs, third-party services) that negotiate on the user’s behalf?</li>
+</ol>
+<h4>Team &amp; process</h4>
+<ol start="27">
+<li>What skill sets (Rust performance engineer, GPU kernel specialist, FPGA prototyper) must be hired <em>before</em> each major rewrite?</li>
+<li>How will we keep documentation of the evolving kernel API in sync with fast prototype iterations?</li>
+<li>What experiments are safe to ship to production users versus those that require a gated beta cohort?</li>
+</ol>
+<h4>Long-term research bets</h4>
+<ol start="30">
+<li>Which HTM concepts (sparse distributed representations, sensor-motor loops) give the biggest practical gain—and how will we validate them early with ablation studies?</li>
+<li>What indicators would convince us <em>not</em> to pursue custom silicon and instead double-down on commodity hardware?</li>
+<li>How could advances in open-weight multimodal models over the next 2 years collapse or reorder our staged plan?</li>
+</ol>
+<p>Use these prompts as a checklist during planning sessions or design reviews; answering them crisply will expose hidden risks and inform the timing of each technical leap.</p>
+
+        </main>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+
+        // Theme toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const html = document.documentElement;
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            html.setAttribute('data-theme', savedTheme);
+            themeToggle.setAttribute('data-theme', savedTheme);
+        }
+
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            themeToggle.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+</body>
+</html> 
