@@ -53,10 +53,10 @@
         <main class="main-content">
             <h2>Intro</h2>
 <p>This document translates the vision of Lucia OS into a stage‑by‑stage list of user‑facing experience milestones and the backend capabilities that enable them. It also tracks the architecture, engineering feasibility, and scalability implications at every step.</p>
-<p>Throughout, we favour well‑known, home‑grown components—SQLite, Postgres, Django, Flask, Rust, C++—before considering bespoke silicon. The brain‑inspired HTM kernels will begin as straightforward Python, progress through native optimisation, and only if necessary graduate to GPUs and, much later, custom chips.</p>
+<p>Throughout, I favour well‑known components like SQLite, Postgres, Django, Flask, C++ and home grown solutions before considering bespoke silicon. The brain‑inspired kernels will begin as straightforward Python, progress through native optimisation, and only if necessary graduate to GPUs and, much later, custom chips.</p>
 <hr>
 <h2>Stage 0 – Prototype</h2>
-<p>Establish the minimum viable product; search for product‑market fit; validate conversational UX.</p>
+<p>Establish the minimum viable product; search for product‑market fit; validate conversational UX. The idea is to concentrate primarily on UX to allow for early discovery and fast paced iteration, before considering true kernel-like backend implementation.</p>
 <h3>UX</h3>
 <ul>
 <li>Conversational shell owns a Telegram handle and a dedicated email address.</li>
@@ -67,25 +67,27 @@
 <ul>
 <li>Single Python process with a few system prompts (Owner -&gt; Assistant, External -&gt; Assistant).</li>
 <li>Storage: SQLite file holding persistent facts, short‑term facts, conversation context, and a problem / question queue.</li>
+<li>Mail - Mailgun or Fastmail depending on wether user can have SMTP acces to their email. Probably should go with mailgun, as user interacts with assistant not with his mailbox.</li>
 </ul>
 <h3>Hardware</h3>
 <ul>
 <li>1 vCPU / 1 GB RAM shared VPS; no GPU.</li>
-<li>External LLM via API (OpenAI, Anthropic, etc.).</li>
 </ul>
 <h3>Architecture</h3>
 <ul>
 <li>Monolithic Flask/Django app. I have experience with Django, but leaning towards Flask because of its simplicity.</li>
-<li>REST calls to external LLM.</li>
+<li>REST calls to external LLMs (OpenAI, Anthropic, etc.).</li>
+<li>External email service (Mailgun)</li>
+<li>External messaging service (Telegram)</li>
 </ul>
 <h3>Engineering feasibility</h3>
 <ul>
-<li>Very high. One engineer; two‑week sprint.</li>
+<li>Very high. One engineer.</li>
 </ul>
 <h3>Scalability &amp; resource demands</h3>
 <ul>
 <li>Tens of concurrent chats; &lt; 1 GB storage; API costs $20–50 mo.</li>
-<li><a href="http://Fly.io">Fly.io</a> is a good option for hosting.</li>
+<li><a href="http://Fly.io">Fly.io</a> is a good option for VPS hosting.</li>
 </ul>
 <hr>
 <h2>Stage 0.5 – Extended Prototype</h2>
@@ -94,10 +96,11 @@
 <ul>
 <li>Tune timing of communication. When do we ask the user? Can we ask a user when/how often we want assistant to interact with the owner?</li>
 <li>First‑pass message classification for importance/urgency/context.</li>
+<li>Describe rules via natural language?</li>
 </ul>
 <h3>Backend</h3>
 <ul>
-<li>Swap SQLite for Postgres while keeping the schema identical. Also evaluate is this needed at all? How are managing context, shor/long term memory?</li>
+<li>Swap SQLite for Postgres while keeping the schema identical. Also evaluate if this is needed at all? How are managing context, shor/long term memory?</li>
 <li>Figure out background jobs. In-house vs Celery?</li>
 <li>Run A/B tests on multiple hosted LLMs; collect latency / cost metrics.</li>
 </ul>
@@ -112,7 +115,7 @@
 </ul>
 <h3>Engineering feasibility</h3>
 <ul>
-<li>High; mainstream tooling.</li>
+<li>High. All mainstream tooling.</li>
 </ul>
 <h3>Scalability &amp; resource demands</h3>
 <ul>
@@ -128,7 +131,7 @@
 </ul>
 <h3>Backend</h3>
 <ul>
-<li>Local vector store (PgVector inside Postgres) with incremental embeddings.</li>
+<li>Local vector store (pgvector inside Postgres) with incremental embeddings.</li>
 <li>Retrieval‑augmented generation (RAG) over personal corpus.</li>
 <li>Event bus (Django Channels / RabbitMQ) to ingest web pages, files, and IoT signals. This is very ambigous right now. Need more research.</li>
 </ul>
