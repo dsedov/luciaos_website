@@ -239,10 +239,10 @@ Triggered only if profiling data from Stage 3 and Stage 4 shows that commodity
 
 ### Steps
 
-1. Collect trace data during high‑load tasks; identify kernel primitives (spatial pooler, temporal memory, etc.).
-2. Prototype on modern FPGA board.
-3. Compare throughput and energy vs high‑end GPU.
-4. If 10× better, kick‑off SoC tape‑out feasibility study.
+* Collect trace data during high‑load tasks; identify kernel primitives (spatial pooler, temporal memory, etc.).
+* Prototype on modern FPGA board.
+* Compare throughput and energy vs high‑end GPU.
+* If 10× better, kick‑off SoC tape‑out feasibility study.
 
 ### Engineering feasibility
 
@@ -251,4 +251,4 @@ Triggered only if profiling data from Stage 3 and Stage 4 shows that commodity
 ### Scalability & resource demands
 
 * Initial FPGA boards ($2–3 k each) for the dev team.
-* ASIC NRE only if ROI is clear 
+* ASIC non-recurrent engineering only if ROI is clear 
