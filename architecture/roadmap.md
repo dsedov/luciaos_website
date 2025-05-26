@@ -12,13 +12,13 @@ eleventyExcludeFromCollections: false
 
 This document translates the vision of Lucia OS into a stage‑by‑stage list of user‑facing experience milestones and the backend capabilities that enable them. It also tracks the architecture, engineering feasibility, and scalability implications at every step.
 
-Throughout, we favour well‑known, home‑grown components—SQLite, Postgres, Django, Flask, Rust, C++—before considering bespoke silicon. The brain‑inspired HTM kernels will begin as straightforward Python, progress through native optimisation, and only if necessary graduate to GPUs and, much later, custom chips.
+Throughout, I favour well‑known components like SQLite, Postgres, Django, Flask, C++ and home grown solutions before considering bespoke silicon. The brain‑inspired kernels will begin as straightforward Python, progress through native optimisation, and only if necessary graduate to GPUs and, much later, custom chips.
 
 ---
 
 ## Stage 0 – Prototype
 
-Establish the minimum viable product; search for product‑market fit; validate conversational UX.
+Establish the minimum viable product; search for product‑market fit; validate conversational UX. The idea is to concentrate primarily on UX to allow for early discovery and fast paced iteration, before considering true kernel-like backend implementation. 
 
 ### UX
 
@@ -30,25 +30,27 @@ Establish the minimum viable product; search for product‑market fit; validate 
 
 * Single Python process with a few system prompts (Owner -> Assistant, External -> Assistant).
 * Storage: SQLite file holding persistent facts, short‑term facts, conversation context, and a problem / question queue.
+* Mail - Mailgun or Fastmail depending on wether user can have SMTP acces to their email. Probably should go with mailgun, as user interacts with assistant not with his mailbox. 
 
 ### Hardware
 
 * 1 vCPU / 1 GB RAM shared VPS; no GPU.
-* External LLM via API (OpenAI, Anthropic, etc.).
 
 ### Architecture
 
 * Monolithic Flask/Django app. I have experience with Django, but leaning towards Flask because of its simplicity.
-* REST calls to external LLM.
+* REST calls to external LLMs (OpenAI, Anthropic, etc.).
+* External email service (Mailgun)
+* External messaging service (Telegram)
 
 ### Engineering feasibility
 
-* Very high. One engineer; two‑week sprint.
+* Very high. One engineer.
 
 ### Scalability & resource demands
 
 * Tens of concurrent chats; < 1 GB storage; API costs $20–50 mo.
-* Fly.io is a good option for hosting.
+* Fly.io is a good option for VPS hosting.
 
 ---
 
@@ -60,10 +62,11 @@ Harden the service, refine message timing and classification, begin cost analysi
 
 * Tune timing of communication. When do we ask the user? Can we ask a user when/how often we want assistant to interact with the owner?
 * First‑pass message classification for importance/urgency/context.
+* Describe rules via natural language?
 
 ### Backend
 
-* Swap SQLite for Postgres while keeping the schema identical. Also evaluate is this needed at all? How are managing context, shor/long term memory?
+* Swap SQLite for Postgres while keeping the schema identical. Also evaluate if this is needed at all? How are managing context, shor/long term memory?
 * Figure out background jobs. In-house vs Celery?
 * Run A/B tests on multiple hosted LLMs; collect latency / cost metrics.
 
@@ -78,7 +81,7 @@ Harden the service, refine message timing and classification, begin cost analysi
 
 ### Engineering feasibility
 
-* High; mainstream tooling.
+* High. All mainstream tooling.
 
 ### Scalability & resource demands
 
@@ -96,7 +99,7 @@ Harden the service, refine message timing and classification, begin cost analysi
 
 ### Backend
 
-* Local vector store (PgVector inside Postgres) with incremental embeddings.
+* Local vector store (pgvector inside Postgres) with incremental embeddings.
 * Retrieval‑augmented generation (RAG) over personal corpus.
 * Event bus (Django Channels / RabbitMQ) to ingest web pages, files, and IoT signals. This is very ambigous right now. Need more research.
 
