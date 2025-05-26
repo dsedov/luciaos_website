@@ -46,7 +46,7 @@
                                     </a>
                                     {%- if entry.data.eleventyNavigation.key == "Components" and page.url.startsWith("/components/") -%}
                                         <ul class="sub-nav">
-                                            {%- for component in collections.components -%}
+                                            {%- for component in collections.components | sortByOrder -%}
                                                 {%- if component.data.eleventyNavigation.parent == "Components" -%}
                                                     <li>
                                                         <a href="{{ component.url }}" {% if component.url == page.url %}aria-current="page"{% endif %}>
@@ -59,7 +59,7 @@
                                     {%- endif -%}
                                     {%- if entry.data.eleventyNavigation.key | capitalize == "External" and page.url.startsWith("/external/") -%}
                                         <ul class="sub-nav">
-                                            {%- for doc in collections.external -%}
+                                            {%- for doc in collections.external | sortByOrder -%}
                                                 {%- if doc.data.eleventyNavigation.parent == "External" -%}
                                                     <li>
                                                         <a href="{{ doc.url }}" {% if doc.url == page.url %}aria-current="page"{% endif %}>
@@ -72,7 +72,7 @@
                                     {%- endif -%}
                                     {%- if entry.data.eleventyNavigation.key | capitalize == "Architecture" and page.url.startsWith("/architecture/") -%}
                                         <ul class="sub-nav">
-                                            {%- for doc in collections.architecture -%}
+                                            {%- for doc in collections.architecture | sortByOrder -%}
                                                 {%- if doc.data.eleventyNavigation.parent == "Architecture" -%}
                                                     <li>
                                                         <a href="{{ doc.url }}" {% if doc.url == page.url %}aria-current="page"{% endif %}>
