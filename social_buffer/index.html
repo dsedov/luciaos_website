@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Buffer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="layout">
+        <header class="mobile-header">
+            <a href="/" class="nav-brand">LUCIA OS</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
+        </header>
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="/" class="nav-brand">LUCIA OS</a>
+            </div>
+            <nav class="sidebar-nav">
+                <ul class="nav-links"><li>
+                                    <a href="/" >
+                                        Home
+                                    </a></li><li>
+                                    <a href="/what_people_do/" >
+                                        What do people do?
+                                    </a></li><li>
+                                    <a href="/social_buffer/" aria-current="page">
+                                        Social Buffer
+                                    </a></li><li>
+                                    <a href="/contact/" >
+                                        Contact
+                                    </a></li><li>
+                                    <a href="/architecture/" >
+                                        Architecture
+                                    </a></li><li>
+                                    <a href="/external/" >
+                                        External
+                                    </a></li></ul>
+            </nav>
+            <button class="theme-toggle" aria-label="Toggle theme">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
+        </aside>
+        <main class="main-content">
+            <h1>Assistant-as-Social-Buffer — Specification</h1>
+<h2>1 · Why This Hits a Nerve</h2>
+<ul>
+<li>Phone numbers and personal inboxes have become de-facto IDs; once shared they leak location, social graph, and 2FA vectors.</li>
+<li>Existing privacy tools are fragmented. Email aliases protect mail but not text; proxy numbers mask SMS but ignore email or chat.</li>
+<li>Introverts crave a polite wall that declines invites and answers follow-ups without the emotional labor of real-time engagement.</li>
+<li>Opportunity: an <em>Identity Gateway</em> that sits in front of <strong>all</strong> channels, applies AI triage, and enforces calm computing.</li>
+</ul>
+<hr>
+<h2>2 · High-Level Flow</h2>
+<pre><code>
+\[Stranger / Service]
+↓
+Identity Gateway  (alias generator &amp; channel router)
+↓
+Context Engine    (spam filter ▸ priority score ▸ empathy style-transfer)
+↓
+User Digest or Auto-Responder
+
+</code></pre>
+<hr>
+<h2>3 · Component Blueprint</h2>
+<h3>3.1 Alias Factory</h3>
+<ul>
+<li>Creates disposable or long-lived identifiers for every counter-party.</li>
+<li>Email: sub-domain forwarding (SimpleLogin-style).</li>
+<li>Phone/SMS: masked numbers via Twilio Proxy.</li>
+<li>Telegram (or similar): bot-powered relay that rewrites sender handles.</li>
+</ul>
+<h3>3.2 Routing Core</h3>
+<ul>
+<li>Normalises inbound payloads into a single JSON schema: <code>{sender, channel, sentiment, intent, timestamp}</code>.</li>
+<li>Ingests via webhooks (SMS, email), long-poll (Telegram), or call-to-text transcription.</li>
+</ul>
+<h3>3.3 Triage Brain</h3>
+<ul>
+<li>Stage 1 — Spam / harassment filter.</li>
+<li>Stage 2 — Urgency classifier (now, today, this week, someday).</li>
+<li>Stage 3 — Emotion &amp; topic tagging.</li>
+<li>Stage 4 — Suggested response with empathy style-transfer tuned for introverts.</li>
+</ul>
+<h3>3.4 Auto-Responder</h3>
+<ul>
+<li>Chooses one of four actions:
+<ul>
+<li><strong>Ghost</strong> (ignore)</li>
+<li><strong>Soft Decline</strong></li>
+<li><strong>Ask Clarifying Question</strong></li>
+<li><strong>Route to Human</strong></li>
+</ul>
+</li>
+<li>Uses a library of quiet, courteous templates plus the user’s personal tone.</li>
+</ul>
+<h3>3.5 Digest &amp; Control UI</h3>
+<ul>
+<li>Batches low-priority items into morning / evening summaries.</li>
+<li>Shows an “energy cost” badge (e.g., “&lt;2 min”, “5-10 min”) for each task.</li>
+<li>Lets the user promote, snooze, or delete messages with one tap.</li>
+</ul>
+<h3>3.6 Privacy Vault</h3>
+<ul>
+<li>Stores only necessary metadata; full contents are end-to-end encrypted on device.</li>
+<li>Supports one-command export to plain JSON / Markdown for data-portability.</li>
+<li>Optional off-device backup in user-owned cloud with their encryption keys.</li>
+</ul>
+<hr>
+<h2>4 · Signature Features Competitors Don’t Offer</h2>
+<ul>
+<li><strong>One Contact Card to Rule Them All</strong> — a single vCard hides rotating aliases per counter-party.</li>
+<li><strong>Anxiety-Adaptive Replies</strong> — if wearables detect stress, the assistant throttles pings and switches to auto-screen mode.</li>
+<li><strong>Form-Fill Relay</strong> — spins up a temp number for SMS codes, injects it, retires the number.</li>
+<li><strong>Conversation Escalation Ladder</strong> — preview → suggest → live proxy chat → reveal real ID (rare, user-approved).</li>
+<li><strong>Cross-Channel Threading</strong> — merges email, SMS, and chat from the same human into one timeline while IDs stay masked.</li>
+</ul>
+<hr>
+<h2>5 · Implementation Hints</h2>
+<ul>
+<li>Rent local numbers in pools; map <code>external ↔ proxy ↔ user</code> in a short-lived session, recycle after inactivity.</li>
+<li>Catch-all sub-domains (<code>*@u.example.com</code>) piped through postfix or an alias service; re-write headers, DKIM-sign per alias.</li>
+<li>Telegram bot in privacy-mode OFF; use <code>forwardMessage</code> to preserve originals, append metadata tags.</li>
+<li>Sign outbound email, rate-limit SMS bursts, hash caller IDs in logs.</li>
+<li>Every alias auto-includes a “/stop” or unsubscribe command that tears it down instantly.</li>
+</ul>
+<hr>
+<h2>6 · Risks &amp; Mitigations</h2>
+<ul>
+<li><strong>Abuse for spam blasts</strong> → rate-limit per recipient, CAPTCHA for bulk sends.</li>
+<li><strong>Legal interception of harassment evidence</strong> → keep minimal encrypted logs for 30 days; user holds the key.</li>
+<li><strong>Provider shutdown (Twilio ban, domain loss)</strong> → maintain warm-spare providers and secondary domains.</li>
+<li><strong>Lost 2FA codes if vault offline</strong> → emergency bypass path that temporarily reveals alias linkage.</li>
+</ul>
+<hr>
+<h2>7 · Assistant-to-Assistant Network (“Social Media 2.0”)</h2>
+<ul>
+<li><strong>Opt-In Federation</strong> — assistants expose ActivityPub-like endpoints; users follow <em>people</em> by following their assistants, not their email addresses.</li>
+<li><strong>Privacy Layering</strong> — only high-level intents and content hashes travel between assistants; raw messages remain local.</li>
+<li><strong>Digital Hygiene by Design</strong>
+<ul>
+<li>No algorithmic engagement farming; feeds are strictly reverse-chron digests.</li>
+<li>Muted‐by-default public channels; the assistant recommends joining only if the topic matches explicit goals.</li>
+<li>Automatic <em>content expiry</em>: posts auto-vanish after user-selected TTL unless bookmarked.</li>
+</ul>
+</li>
+<li><strong>Cross-Assistant Collaboration</strong> — scheduling a call, sharing receipts, co-authoring docs: assistants negotiate APIs behind the scenes, then surface a concise “ready to confirm?” card.</li>
+<li><strong>Quiet Communities</strong> — small groups of users let their assistants exchange daily summaries; humans jump in only when something sparks genuine interest.</li>
+<li><strong>Fallback to Human</strong> — any federated thread can escalate to direct human chat, preserving the full assistant-maintained context for clarity.</li>
+</ul>
+<hr>
+<h2>8 · North-Star Experience Script</h2>
+<blockquote>
+<p><strong>Alice</strong> scans the QR on your badge.<br>
+<strong>Assistant</strong> issues <code>alice-2025-05@u.example.com</code> and <code>+1-669-555-0318</code>.<br>
+<strong>Alice</strong> emails at 11 pm: <em>“Brunch tomorrow?”</em><br>
+<strong>Triage Brain</strong> tags it as social-low-urgency outside quiet hours and queues it.<br>
+<strong>8 am Digest</strong> shows the invite with two options: <strong>Decline politely</strong> or <strong>Propose later</strong>.<br>
+You tap <strong>Propose later</strong>.<br>
+<strong>Assistant</strong> replies: “Thanks, Alice! This week’s packed—can we aim for next month?”<br>
+Alice never sees your real inbox or number, and you never felt the 11 pm guilt ping.</p>
+</blockquote>
+<hr>
+<h2>9 · Positioning Tag-Line</h2>
+<blockquote>
+<p><strong>Give the world your assistant, keep your serenity.</strong></p>
+</blockquote>
+
+        </main>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+
+        // Theme toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const html = document.documentElement;
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            html.setAttribute('data-theme', savedTheme);
+            themeToggle.setAttribute('data-theme', savedTheme);
+        }
+
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            themeToggle.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+</body>
+</html> 
