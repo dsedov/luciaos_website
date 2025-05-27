@@ -89,7 +89,7 @@
                                     {%- if entry.data.eleventyNavigation.key | capitalize == "Ux" and page.url.startsWith("/ux/") -%}
                                         <ul class="sub-nav">
                                             {%- for doc in collections.ux | sortByOrder -%}
-                                                {%- if doc.data.eleventyNavigation.parent == "UX" -%}
+                                                {%- if doc.data.eleventyNavigation.parent == "Ux" -%}
                                                     <li>
                                                         <a href="{{ doc.url }}" {% if doc.url == page.url %}aria-current="page"{% endif %}>
                                                             {{ doc.data.eleventyNavigation.key }}

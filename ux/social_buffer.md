@@ -3,7 +3,7 @@ layout: base.njk
 title: Social Buffer
 eleventyNavigation:
   key: Social Buffer
-  parent: UX
+  parent: Ux
   order: 1
 ---
 

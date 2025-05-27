@@ -3,7 +3,7 @@ layout: base.njk
 title: The Illusive Extravert
 eleventyNavigation:
   key: Extravert
-  parent: UX
+  parent: Ux
   order: 3
 ---
 

@@ -3,7 +3,7 @@ layout: base.njk
 title: What do people do?
 eleventyNavigation:
   key: What do people do?
-  parent: UX
+  parent: Ux
   order: 2
 ---
 
