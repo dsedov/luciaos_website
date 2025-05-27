@@ -28,7 +28,7 @@ module.exports = function(eleventyConfig) {
     });
 
     // Special sections that should show sub-articles only when in their section
-    const specialSections = ["external", "architecture"];
+    const specialSections = ["external", "architecture", "ux"];
 
     // Create collections for special sections
     specialSections.forEach(section => {

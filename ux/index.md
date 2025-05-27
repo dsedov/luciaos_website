@@ -2,7 +2,7 @@
 layout: base.njk
 title: User Experience
 eleventyNavigation:
-  key: User Experience
+  key: UX
   order: 3
 ---
 

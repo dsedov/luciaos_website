@@ -35,8 +35,8 @@
                             {%- elif page.url.startsWith("/architecture/") -%}
                                 {%- set currentSection = "architecture" -%}
                                 {%- set isSpecialSection = true -%}
-                            {%- elif page.url.startsWith("/user_experience/") -%}
-                                {%- set currentSection = "user_experience" -%}
+                            {%- elif page.url.startsWith("/ux/") -%}
+                                {%- set currentSection = "ux" -%}
                                 {%- set isSpecialSection = true -%}
                             {%- endif -%}
                             {%- if entry.data.eleventyNavigation.key == "Home" or 
@@ -86,10 +86,10 @@
                                             {%- endfor -%}
                                         </ul>
                                     {%- endif -%}
-                                    {%- if entry.data.eleventyNavigation.key | capitalize == "User Experience" and page.url.startsWith("/user_experience/") -%}
+                                    {%- if entry.data.eleventyNavigation.key | page.url.startsWith("/user_experience/") -%}
                                         <ul class="sub-nav">
-                                            {%- for doc in collections.user_experience | sortByOrder -%}
-                                                {%- if doc.data.eleventyNavigation.parent == "User Experience" -%}
+                                            {%- for doc in collections.ux | sortByOrder -%}
+                                                {%- if doc.data.eleventyNavigation.parent == "UX" -%}
                                                     <li>
                                                         <a href="{{ doc.url }}" {% if doc.url == page.url %}aria-current="page"{% endif %}>
                                                             {{ doc.data.eleventyNavigation.key }}
