@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What do people do?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="layout">
+        <header class="mobile-header">
+            <a href="/" class="nav-brand">LUCIA OS</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
+        </header>
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="/" class="nav-brand">LUCIA OS</a>
+            </div>
+            <nav class="sidebar-nav">
+                <ul class="nav-links"><li>
+                                    <a href="/" >
+                                        Home
+                                    </a></li><li>
+                                    <a href="/user_experience/social_buffer/" >
+                                        Social Buffer
+                                    </a></li><li>
+                                    <a href="/architecture/" >
+                                        Architecture
+                                    </a></li><li>
+                                    <a href="/user_experience/what_people_do/" aria-current="page">
+                                        What do people do?
+                                    </a></li><li>
+                                    <a href="/user_experience/extravert/" >
+                                        Extravert
+                                    </a></li><li>
+                                    <a href="/user_experience/" >
+                                        User Experience
+                                    </a></li><li>
+                                    <a href="/contact/" >
+                                        Contact
+                                    </a></li><li>
+                                    <a href="/external/" >
+                                        External
+                                    </a></li></ul>
+            </nav>
+            <button class="theme-toggle" aria-label="Toggle theme">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
+        </aside>
+        <main class="main-content">
+            <h2>1. Three Core Archetypes</h2>
+<h3>1.1 The Technical Geeky “Power Tinkerer”</h3>
+<ul>
+<li>
+<p><strong>Profile</strong> – Comfortable with code, hardware hacks, Bash shells, APIs, self-hosted services. Enjoys optimizing life and machines alike.</p>
+</li>
+<li>
+<p><strong>Motivations</strong> – Mastery, curiosity, measurable progress, brag-worthy automation.</p>
+</li>
+<li>
+<p><strong>Pain Points</strong> – Context overload, maintaining many side-projects, glue code between tools, staying on top of fast-moving tech.</p>
+</li>
+<li>
+<p><strong>Assistant Jobs-to-be-Done</strong></p>
+<ul>
+<li>Code snippets, stack-trace triage, API playgrounds.</li>
+<li>Infra babysitting: uptime alerts, log summaries, “git pull &amp; rebuild if CI passes.”</li>
+<li>Dev-heavy life admin: automate bill pay with scripts, scrape DMV appointment APIs, auto-file receipts to Airtable.</li>
+</ul>
+</li>
+<li>
+<p><strong>Preferred Modes</strong> – Desktop CLI, VS Code plugin, webhooks, push notifications to smartwatch, quick voice commands while soldering.</p>
+</li>
+</ul>
+<h3>1.2 The Non-Technical Introvert “Quiet Organizer”</h3>
+<ul>
+<li>
+<p><strong>Profile</strong> – Comfortable with apps but not debugging them; anxious about bureaucracy and social friction.</p>
+</li>
+<li>
+<p><strong>Motivations</strong> – Peace of mind, tidy schedule, gentle nudges rather than alarms.</p>
+</li>
+<li>
+<p><strong>Pain Points</strong> – Decision fatigue, paperwork dread, missed deadlines, small-talk exhaustion.</p>
+</li>
+<li>
+<p><strong>Assistant Jobs-to-be-Done</strong></p>
+<ul>
+<li>Step-by-step walkthroughs for DMV, passport renewal, utility account setup.</li>
+<li>Draft polite emails / texts, maintain “response-due” queue.</li>
+<li>Curate calm media: evening reading list, podcast highlights, sleep-friendly playlists.</li>
+<li>Mood check-ins, journaling prompts, CBT-style reframing.</li>
+</ul>
+</li>
+<li>
+<p><strong>Preferred Modes</strong> – Chat UI, scheduled digests, low-key voice via earbuds, ambient mobile widgets (no flashing badges).</p>
+</li>
+</ul>
+<h3>1.3 The Creative Multitasker “Flow Seeker”</h3>
+<ul>
+<li>
+<p><strong>Profile</strong> – Designer / writer / indie founder juggling client work, personal brand, and side art.</p>
+</li>
+<li>
+<p><strong>Motivations</strong> – Flow state, visible portfolio growth, serendipity.</p>
+</li>
+<li>
+<p><strong>Pain Points</strong> – Context switches, scattered research, publishing pipeline grunt work.</p>
+</li>
+<li>
+<p><strong>Assistant Jobs-to-be-Done</strong></p>
+<ul>
+<li>Idea capture anywhere → structured vault (tags, backlinks).</li>
+<li>Auto-generate social posts, newsletters, press-kit updates.</li>
+<li>Remind to invoice, chase payments, track revenue vs. burn.</li>
+<li>Suggest skill-stretches (“try Midjourney prompt in ___ style”) and friendly competitions (NaNoWriMo, #100DaysOfDesign).</li>
+</ul>
+</li>
+<li>
+<p><strong>Preferred Modes</strong> – Mobile notes share-sheet, voice memos transcribed, canvas-style whiteboard, integration with creative suites.</p>
+</li>
+</ul>
+<hr>
+<h2>2. Exhaustive “What People Actually Do”</h2>
+<p>(Think of these as life verbs your assistant can attach itself to.)</p>
+<ul>
+<li><strong>Manage Money</strong> – earn, budget, pay taxes, invest, donate, expense reports.</li>
+<li><strong>Consume Media</strong> – read articles &amp; books, binge series, scroll feeds, listen to podcasts/music, watch live streams.</li>
+<li><strong>Communicate</strong> – email, messaging, calls, video meetings, social posts, community forums.</li>
+<li><strong>Maintain Health</strong> – track workouts, log meals, take meds, book check-ups, mental-health routines, sleep hygiene.</li>
+<li><strong>Run a Household</strong> – grocery runs, cooking, cleaning schedules, pet care, appliance maintenance, repairs.</li>
+<li><strong>Deal with Bureaucracy</strong> – DMV, passports, visas, insurance claims, permits, voter registration.</li>
+<li><strong>Learn &amp; Upskill</strong> – online courses, language practice, coding katas, certification prep.</li>
+<li><strong>Travel &amp; Commute</strong> – plan itineraries, book tickets, track traffic, EV charging stops.</li>
+<li><strong>Create &amp; Build</strong> – coding, writing, art, woodworking, gardening, DIY electronics.</li>
+<li><strong>Work &amp; Collaborate</strong> – project management, Kanban boards, doc reviews, time tracking.</li>
+<li><strong>Shop &amp; Sell</strong> – wish-lists, price watching, reselling old gear, subscription juggling.</li>
+<li><strong>Play &amp; Compete</strong> – video games, fantasy leagues, fitness challenges, hobby tournaments.</li>
+<li><strong>Reflect &amp; Grow</strong> – journaling, goal setting, meditation, habit tracking, gratitude logs.</li>
+<li><strong>Socialize</strong> – event planning, group voting on restaurants, remembering birthdays, icebreakers for introverts.</li>
+</ul>
+<hr>
+<h2>3. Assistant Use-Case Clusters (across archetypes)</h2>
+<ol>
+<li><strong>Life-Admin Automation</strong> – bill payments, license/ID renewals, recurring reminders, document vault with OCR.</li>
+<li><strong>Knowledge Concierge</strong> – fast answers, long-form explainers, code review, “explain like I’m five” toggles.</li>
+<li><strong>Proactive Personal CFO</strong> – spend alerts, portfolio rebalancing nudges, tax-loss harvesting checks.</li>
+<li><strong>Health &amp; Wellness Coach</strong> – context-aware activity nudges, stress-level estimations from wearable, sleep trend insights.</li>
+<li><strong>Content DJ</strong> – creates dynamic playlists, queues podcast snippets, summarises articles, surfaces niche newsletters.</li>
+<li><strong>Communication Butler</strong> – triages inbox, drafts replies in your tone, blocks spam callers, suggests meeting times.</li>
+<li><strong>Creativity Catalyst</strong> – brainstorm partner, mood-board generator, version control for ideas, friction-free publishing.</li>
+<li><strong>Gamified Progress Tracker</strong> – XP points for tasks, streaks, friendly leaderboards within a private cohort.</li>
+<li><strong>House &amp; IoT Manager</strong> – smart-home routines, energy use reports, security camera anomaly alerts.</li>
+<li><strong>Travel Sherpa</strong> – visa checklist, flight disruption rebooking, language cheat-sheets, local SIM suggestions.</li>
+</ol>
+<hr>
+<h2>4. Modes of Interaction</h2>
+<ul>
+<li><strong>Conversational Text</strong> – chat apps, web widget, SMS fallback.</li>
+<li><strong>Voice</strong> – phone call, smart-speaker, car infotainment, AirPods squeeze-and-speak.</li>
+<li><strong>Command Line / DevOps Hooks</strong> – <code>lucia-cli pay --vendor pg&amp;e --amount auto</code>, Git pre-commit hooks.</li>
+<li><strong>Email Threading</strong> – assistant CC’d to auto-summarize long chains or schedule meetings.</li>
+<li><strong>Proactive Notifications</strong> – push, digest emails, desktop cards, lock-screen widgets; frequency tuned to user persona.</li>
+<li><strong>APIs &amp; Webhooks</strong> – for integrations with home servers, Notion, Jira, Home Assistant, wearables.</li>
+<li><strong>Ambient Displays</strong> – e-ink desk dashboard, smartwatch complications, AR glasses pop-ups.</li>
+<li><strong>Physical UI</strong> – macro-pads, NFC tags, voice-only toggles, eventual robotic presence.</li>
+<li><strong>Collaborative Surfaces</strong> – shared whiteboards, canvas docs, multiplayer editing with the assistant as one more cursor.</li>
+</ul>
+<hr>
+<h2>5. Motivational Levers &amp; Emotional Hooks</h2>
+<ul>
+<li><strong>Accomplishment &amp; Mastery</strong> – progress bars, badges, weekly retros.</li>
+<li><strong>Competition &amp; Social Proof</strong> – private leaderboards, pair-programming scorecards, reading challenges.</li>
+<li><strong>Peace &amp; Trust</strong> – for the introvert: low-noise default, data-privacy transparency, “quiet hours.”</li>
+<li><strong>Curiosity &amp; Play</strong> – easter eggs, random “Did-you-know?” drops, creative prompt of the day.</li>
+<li><strong>Safety Nets</strong> – undo stack, explain-my-decision feature, audit trail.</li>
+</ul>
+<hr>
+<h2>6. Idea Starters for Your Specified Tasks</h2>
+<ul>
+<li>
+<p><strong>Paying Bills / Renewing DL</strong></p>
+<ul>
+<li>Pre-filled forms, auto-submission with captcha-solver proxies, doc checklist reminders 30 / 7 / 1 days before.</li>
+<li>“Explain this fee” deep-link to support chat.</li>
+</ul>
+</li>
+<li>
+<p><strong>Government Sites &amp; Utilities</strong></p>
+<ul>
+<li>Single dashboard scraping DMV, IRS, local trash pickup schedule, water usage API.</li>
+<li>Alert when new parking citation appears, suggest appeal templates.</li>
+</ul>
+</li>
+<li>
+<p><strong>Banking &amp; Investing</strong></p>
+<ul>
+<li>Daily ledger reconciliation from Plaid, visualize cashflow, push deviations.</li>
+<li>Portfolio risk heat-map vs. target allocation.</li>
+</ul>
+</li>
+<li>
+<p><strong>Podcast / Reading / Entertainment</strong></p>
+<ul>
+<li>Morning feed: 3 podcast clip recs, 2 article summaries, 1 new comic chapter.</li>
+<li>Auto-generate “TL;DR Friday” audio digest in your own voice clone.</li>
+</ul>
+</li>
+<li>
+<p><strong>Health &amp; Relativity (?)</strong></p>
+<ul>
+<li>If workouts drop below baseline → suggest 15-min desk stretch video.</li>
+<li>“Relativity” could be assistant-curated explainers of tough physics concepts for fun learning goals.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3>Final Thought</h3>
+<p>Start small: pick <strong>one archetype plus two killer use-case clusters</strong>, deliver them brilliantly, and let the other features accrete. Otherwise the “exhaustive” list quickly becomes a never-shipped product backlog.</p>
+
+        </main>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+
+        // Theme toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const html = document.documentElement;
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            html.setAttribute('data-theme', savedTheme);
+            themeToggle.setAttribute('data-theme', savedTheme);
+        }
+
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            themeToggle.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+</body>
+</html> 
