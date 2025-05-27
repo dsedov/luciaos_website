@@ -35,6 +35,9 @@
                             {%- elif page.url.startsWith("/architecture/") -%}
                                 {%- set currentSection = "architecture" -%}
                                 {%- set isSpecialSection = true -%}
+                            {%- elif page.url.startsWith("/user_experience/") -%}
+                                {%- set currentSection = "user_experience" -%}
+                                {%- set isSpecialSection = true -%}
                             {%- endif -%}
                             {%- if entry.data.eleventyNavigation.key == "Home" or 
                                   (not isSpecialSection) or 
@@ -74,6 +77,19 @@
                                         <ul class="sub-nav">
                                             {%- for doc in collections.architecture | sortByOrder -%}
                                                 {%- if doc.data.eleventyNavigation.parent == "Architecture" -%}
+                                                    <li>
+                                                        <a href="{{ doc.url }}" {% if doc.url == page.url %}aria-current="page"{% endif %}>
+                                                            {{ doc.data.eleventyNavigation.key }}
+                                                        </a>
+                                                    </li>
+                                                {%- endif -%}
+                                            {%- endfor -%}
+                                        </ul>
+                                    {%- endif -%}
+                                    {%- if entry.data.eleventyNavigation.key | capitalize == "User Experience" and page.url.startsWith("/user_experience/") -%}
+                                        <ul class="sub-nav">
+                                            {%- for doc in collections.user_experience | sortByOrder -%}
+                                                {%- if doc.data.eleventyNavigation.parent == "User Experience" -%}
                                                     <li>
                                                         <a href="{{ doc.url }}" {% if doc.url == page.url %}aria-current="page"{% endif %}>
                                                             {{ doc.data.eleventyNavigation.key }}
