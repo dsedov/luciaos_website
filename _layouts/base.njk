@@ -86,7 +86,7 @@
                                             {%- endfor -%}
                                         </ul>
                                     {%- endif -%}
-                                    {%- if entry.data.eleventyNavigation.key | page.url.startsWith("/user_experience/") -%}
+                                    {%- if entry.data.eleventyNavigation.key | capitalize == "Ux" and page.url.startsWith("/ux/") -%}
                                         <ul class="sub-nav">
                                             {%- for doc in collections.ux | sortByOrder -%}
                                                 {%- if doc.data.eleventyNavigation.parent == "UX" -%}
