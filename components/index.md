@@ -3,7 +3,7 @@ layout: base.njk
 title: Components - LUCIA OS
 eleventyNavigation:
   key: Components
-  order: 5
+  order: 4
   parent: Components
 permalink: /components/
 ---

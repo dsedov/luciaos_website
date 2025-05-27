@@ -3,7 +3,7 @@ layout: base.njk
 title: Architecture
 eleventyNavigation:
   key: Architecture
-  order: 100
+  order: 2
 ---
 
 # Architecture

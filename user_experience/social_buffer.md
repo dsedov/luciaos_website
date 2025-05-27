@@ -3,7 +3,7 @@ layout: base.njk
 title: Social Buffer
 eleventyNavigation:
   key: Social Buffer
-  order: 3
+  order: 1
 ---
 
 # Assistant-as-Social-Buffer — Specification

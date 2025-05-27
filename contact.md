@@ -3,7 +3,7 @@ layout: base.njk
 title: Contact - LUCIA OS
 eleventyNavigation:
   key: Contact
-  order: 40
+  order: 100
 ---
 
 # Contact
